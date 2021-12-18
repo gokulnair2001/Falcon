@@ -12,4 +12,5 @@ enum ScreenType: String {
     case settings = "gear"
     case history = "clock.arrow.circlepath"
     case docs = "list.bullet.rectangle"
+    case profile = "person"
 }

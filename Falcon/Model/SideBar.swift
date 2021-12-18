@@ -8,41 +8,65 @@
 import SwiftUI
 
 struct SideBar: View {
-    
+   
     @Binding var currentTab: ScreenType
     @Namespace var animation
     
     var body: some View {
         
-        HStack(spacing: 0){
+        ZStack {
             
-            VStack(spacing: 10) {
+            HStack(spacing: 0){
                 
-                ForEach([ScreenType.home, ScreenType.docs, ScreenType.history, ScreenType.settings], id: \.self){image in
-                    MenuButtons(image: image)
+                VStack {
+                    VStack(spacing: 10) {
+                        
+                        ForEach([ScreenType.home, ScreenType.docs, ScreenType.history, ScreenType.settings], id: \.self){image in
+                            MenuButtons(image: image)
+                        }
+                        
+                    }
+                    .padding(.top, 60)
+                    .frame(width: 85)
+                    .frame(maxHeight: .infinity, alignment: .top)
+                    .background(
+                        ZStack {
+                            Color.white
+                                .padding(.trailing, 30)
+                            
+                            Color.white
+                                .cornerRadius(15)
+                                .shadow(color: Color.black.opacity(0.04), radius: 5, x: 5, y: 0)
+                        }
+                    )
+                    
+                    VStack(spacing: 5) {
+                        // Profile Section
+                        Image("DP")
+                            .resizable()
+                            .aspectRatio(contentMode: .fill)
+                            .frame(width: 40, height: 40)
+                            .clipShape(Circle())
+                        //.padding()
+                    }.onTapGesture {
+                        currentTab = .profile
+                    }
+                    Text("F A L C O N")
+                        .foregroundColor(.black)
+                        .font(.caption2)
+                        .padding(.bottom, 5)
+                    
                 }
                 
             }
-            .padding(.top, 60)
-            .frame(width: 85)
-            .frame(maxHeight: .infinity, alignment: .top)
-            .background(
-                ZStack {
-                    Color.white
-                        .padding(.trailing, 30)
-                    
-                    Color.white
-                        .cornerRadius(15)
-                        .shadow(color: Color.black.opacity(0.04), radius: 5, x: 5, y: 0)
-                }
-            )
-            //getRect().width/1.75,getRect().height - 130
-        }//.frame(width: 85, height: getRect().height, alignment: .leading)
-        .frame(minWidth: 85, idealWidth: 85, maxWidth: 85, minHeight: 300, idealHeight: 500, maxHeight: .infinity, alignment: .center)
-        .background(Color("BG").ignoresSafeArea())
+            .frame(minWidth: 85, idealWidth: 85, maxWidth: 85, minHeight: 300, idealHeight: 500, maxHeight: .infinity, alignment: .center)
+            .background(Color("BG").ignoresSafeArea())
+            
+            
+            .buttonStyle(BorderlessButtonStyle())
+            
+        }
         
-        
-        .buttonStyle(BorderlessButtonStyle())
     }
     
     /// Side Bar Button builder
@@ -76,8 +100,8 @@ struct SideBar: View {
     }
 }
 
-struct SideBar_Previews: PreviewProvider {
-    static var previews: some View {
-        Main(selectedScreen: .home)
-    }
-}
+//struct SideBar_Previews: PreviewProvider {
+//    static var previews: some View {
+//        Main(selectedScreen: .home)
+//    }
+//}

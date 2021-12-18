@@ -18,6 +18,8 @@
 		557B4C4B276DC6A700E319B2 /* Documentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C4A276DC6A700E319B2 /* Documentation.swift */; };
 		557B4C4D276DC6AF00E319B2 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C4C276DC6AF00E319B2 /* History.swift */; };
 		557B4C4F276DC6FE00E319B2 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C4E276DC6FE00E319B2 /* Home.swift */; };
+		557B4C51276DE7CC00E319B2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C50276DE7CC00E319B2 /* Profile.swift */; };
+		557B4C53276DEC9300E319B2 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C52276DEC9300E319B2 /* TabBar.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +36,8 @@
 		557B4C4A276DC6A700E319B2 /* Documentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Documentation.swift; sourceTree = "<group>"; };
 		557B4C4C276DC6AF00E319B2 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
 		557B4C4E276DC6FE00E319B2 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
+		557B4C50276DE7CC00E319B2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
+		557B4C52276DEC9300E319B2 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -90,6 +94,7 @@
 			isa = PBXGroup;
 			children = (
 				557B4C42276DC46300E319B2 /* SideBar.swift */,
+				557B4C52276DEC9300E319B2 /* TabBar.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -102,6 +107,7 @@
 				557B4C4A276DC6A700E319B2 /* Documentation.swift */,
 				557B4C4C276DC6AF00E319B2 /* History.swift */,
 				557B4C4E276DC6FE00E319B2 /* Home.swift */,
+				557B4C50276DE7CC00E319B2 /* Profile.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -193,12 +199,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				557B4C4B276DC6A700E319B2 /* Documentation.swift in Sources */,
+				557B4C51276DE7CC00E319B2 /* Profile.swift in Sources */,
 				557B4C49276DC69B00E319B2 /* Settings.swift in Sources */,
 				557B4C4D276DC6AF00E319B2 /* History.swift in Sources */,
 				55577FFD27521334000968D4 /* Main.swift in Sources */,
 				557B4C4F276DC6FE00E319B2 /* Home.swift in Sources */,
 				557B4C43276DC46300E319B2 /* SideBar.swift in Sources */,
 				557B4C47276DC51600E319B2 /* ScreenTypes.swift in Sources */,
+				557B4C53276DEC9300E319B2 /* TabBar.swift in Sources */,
 				55577FFB27521334000968D4 /* FalconApp.swift in Sources */,
 				557B4C45276DC4EF00E319B2 /* Tools.swift in Sources */,
 			);
