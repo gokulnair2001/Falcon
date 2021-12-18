@@ -16,7 +16,7 @@ struct SideBar: View {
         
         ZStack {
             
-            HStack(spacing: 0){
+            HStack{
                 
                 VStack {
                     VStack(spacing: 10) {
@@ -29,18 +29,9 @@ struct SideBar: View {
                     .padding(.top, 60)
                     .frame(width: 85)
                     .frame(maxHeight: .infinity, alignment: .top)
-                    .background(
-                        ZStack {
-                            Color.white
-                                .padding(.trailing, 30)
-                            
-                            Color.white
-                                .cornerRadius(15)
-                                .shadow(color: Color.black.opacity(0.04), radius: 5, x: 5, y: 0)
-                        }
-                    )
+
                     
-                    VStack(spacing: 5) {
+                    VStack(spacing: 10) {
                         // Profile Section
                         Image("DP")
                             .resizable()
@@ -51,12 +42,22 @@ struct SideBar: View {
                     }.onTapGesture {
                         currentTab = .profile
                     }
+                    
                     Text("F A L C O N")
                         .foregroundColor(.black)
                         .font(.caption2)
                         .padding(.bottom, 5)
                     
-                }
+                }.background(
+                    ZStack {
+                        Color.white
+                            .padding(.trailing, 30)
+                        
+                        Color.white
+                            .cornerRadius(15)
+                            .shadow(color: Color.black.opacity(0.1), radius: 5, x: 5, y: 0)
+                    }
+                )
                 
             }
             .frame(minWidth: 85, idealWidth: 85, maxWidth: 85, minHeight: 300, idealHeight: 500, maxHeight: .infinity, alignment: .center)
