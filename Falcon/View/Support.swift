@@ -9,15 +9,25 @@ import SwiftUI
 
 struct Support: View {
     
+    @Binding var isShowingSupportView: Bool
+    
     var body: some View {
-        VStack {
+        ZStack {
             Color.red
-        }.frame(minWidth: 300, idealWidth: 600, maxWidth: 600, minHeight: 500, idealHeight: 800, maxHeight: 800, alignment: .center)
+            Button{
+                withAnimation {
+                    isShowingSupportView = false
+                }
+            }label: {
+                Text("dismiss")
+                    .foregroundColor(Color.black)
+            }
+        }.frame(minWidth: 400, idealWidth: 400, maxWidth: 400, minHeight: 500, idealHeight: 500, maxHeight: 500, alignment: .center)
     }
 }
 
 struct Support_Previews: PreviewProvider {
     static var previews: some View {
-        Support()
+        Support(isShowingSupportView: .constant(true))
     }
 }
