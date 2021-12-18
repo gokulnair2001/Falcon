@@ -20,6 +20,7 @@
 		557B4C4F276DC6FE00E319B2 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C4E276DC6FE00E319B2 /* Home.swift */; };
 		557B4C51276DE7CC00E319B2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C50276DE7CC00E319B2 /* Profile.swift */; };
 		557B4C53276DEC9300E319B2 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C52276DEC9300E319B2 /* TabBar.swift */; };
+		55909AF6276E12FB00AC041E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55909AF5276E12FB00AC041E /* Network.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -38,6 +39,7 @@
 		557B4C4E276DC6FE00E319B2 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 		557B4C50276DE7CC00E319B2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		557B4C52276DEC9300E319B2 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
+		55909AF5276E12FB00AC041E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -124,6 +126,7 @@
 			children = (
 				557B4C44276DC4EF00E319B2 /* Tools.swift */,
 				557B4C46276DC51600E319B2 /* ScreenTypes.swift */,
+				55909AF5276E12FB00AC041E /* Network.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -200,6 +203,7 @@
 			files = (
 				557B4C4B276DC6A700E319B2 /* Documentation.swift in Sources */,
 				557B4C51276DE7CC00E319B2 /* Profile.swift in Sources */,
+				55909AF6276E12FB00AC041E /* Network.swift in Sources */,
 				557B4C49276DC69B00E319B2 /* Settings.swift in Sources */,
 				557B4C4D276DC6AF00E319B2 /* History.swift in Sources */,
 				55577FFD27521334000968D4 /* Main.swift in Sources */,

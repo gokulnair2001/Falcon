@@ -12,7 +12,7 @@ struct Main: View {
     @State var selectedScreen: ScreenType = .home
     
     var body: some View {
-        HStack(spacing: 0) {
+        HStack(spacing: 10) {
             
             SideBar(currentTab: $selectedScreen)
             
