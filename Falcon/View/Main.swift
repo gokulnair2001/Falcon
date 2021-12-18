@@ -16,15 +16,21 @@ struct Main: View {
             
             SideBar(currentTab: $selectedScreen)
             
-            switch selectedScreen {
-            case .home:
-                Home()
-            case .settings:
-                Settings()
-            case .history:
-                History()
-            case .docs:
-                Documentation()
+            VStack {
+                TabBar()
+                
+                switch selectedScreen {
+                case .home:
+                    Home()
+                case .settings:
+                    Settings()
+                case .history:
+                    History()
+                case .docs:
+                    Documentation()
+                case .profile:
+                    Profile()
+                }
             }
         }
         .background(Color("BG"))
