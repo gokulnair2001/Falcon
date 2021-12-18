@@ -8,18 +8,32 @@
 
 /* Begin PBXBuildFile section */
 		55577FFB27521334000968D4 /* FalconApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55577FFA27521334000968D4 /* FalconApp.swift */; };
-		55577FFD27521334000968D4 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55577FFC27521334000968D4 /* ContentView.swift */; };
+		55577FFD27521334000968D4 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55577FFC27521334000968D4 /* Main.swift */; };
 		55577FFF27521336000968D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55577FFE27521336000968D4 /* Assets.xcassets */; };
 		5557800227521336000968D4 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5557800127521336000968D4 /* Preview Assets.xcassets */; };
+		557B4C43276DC46300E319B2 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C42276DC46300E319B2 /* SideBar.swift */; };
+		557B4C45276DC4EF00E319B2 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C44276DC4EF00E319B2 /* Tools.swift */; };
+		557B4C47276DC51600E319B2 /* ScreenTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C46276DC51600E319B2 /* ScreenTypes.swift */; };
+		557B4C49276DC69B00E319B2 /* Settings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C48276DC69B00E319B2 /* Settings.swift */; };
+		557B4C4B276DC6A700E319B2 /* Documentation.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C4A276DC6A700E319B2 /* Documentation.swift */; };
+		557B4C4D276DC6AF00E319B2 /* History.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C4C276DC6AF00E319B2 /* History.swift */; };
+		557B4C4F276DC6FE00E319B2 /* Home.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C4E276DC6FE00E319B2 /* Home.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		55577FF727521334000968D4 /* Falcon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Falcon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55577FFA27521334000968D4 /* FalconApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FalconApp.swift; sourceTree = "<group>"; };
-		55577FFC27521334000968D4 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		55577FFC27521334000968D4 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
 		55577FFE27521336000968D4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		5557800127521336000968D4 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		5557800327521336000968D4 /* Falcon.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Falcon.entitlements; sourceTree = "<group>"; };
+		557B4C42276DC46300E319B2 /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
+		557B4C44276DC4EF00E319B2 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
+		557B4C46276DC51600E319B2 /* ScreenTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTypes.swift; sourceTree = "<group>"; };
+		557B4C48276DC69B00E319B2 /* Settings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Settings.swift; sourceTree = "<group>"; };
+		557B4C4A276DC6A700E319B2 /* Documentation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Documentation.swift; sourceTree = "<group>"; };
+		557B4C4C276DC6AF00E319B2 /* History.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = History.swift; sourceTree = "<group>"; };
+		557B4C4E276DC6FE00E319B2 /* Home.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Home.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,8 +66,11 @@
 		55577FF927521334000968D4 /* Falcon */ = {
 			isa = PBXGroup;
 			children = (
+				557B4C3D276DC2A100E319B2 /* Model */,
+				557B4C3F276DC2B100E319B2 /* View Model */,
+				557B4C3E276DC2AC00E319B2 /* View */,
+				557B4C40276DC43800E319B2 /* Utilities */,
 				55577FFA27521334000968D4 /* FalconApp.swift */,
-				55577FFC27521334000968D4 /* ContentView.swift */,
 				55577FFE27521336000968D4 /* Assets.xcassets */,
 				5557800327521336000968D4 /* Falcon.entitlements */,
 				5557800027521336000968D4 /* Preview Content */,
@@ -67,6 +84,42 @@
 				5557800127521336000968D4 /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		557B4C3D276DC2A100E319B2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				557B4C42276DC46300E319B2 /* SideBar.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		557B4C3E276DC2AC00E319B2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				55577FFC27521334000968D4 /* Main.swift */,
+				557B4C48276DC69B00E319B2 /* Settings.swift */,
+				557B4C4A276DC6A700E319B2 /* Documentation.swift */,
+				557B4C4C276DC6AF00E319B2 /* History.swift */,
+				557B4C4E276DC6FE00E319B2 /* Home.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		557B4C3F276DC2B100E319B2 /* View Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = "View Model";
+			sourceTree = "<group>";
+		};
+		557B4C40276DC43800E319B2 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				557B4C44276DC4EF00E319B2 /* Tools.swift */,
+				557B4C46276DC51600E319B2 /* ScreenTypes.swift */,
+			);
+			path = Utilities;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -139,8 +192,15 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				55577FFD27521334000968D4 /* ContentView.swift in Sources */,
+				557B4C4B276DC6A700E319B2 /* Documentation.swift in Sources */,
+				557B4C49276DC69B00E319B2 /* Settings.swift in Sources */,
+				557B4C4D276DC6AF00E319B2 /* History.swift in Sources */,
+				55577FFD27521334000968D4 /* Main.swift in Sources */,
+				557B4C4F276DC6FE00E319B2 /* Home.swift in Sources */,
+				557B4C43276DC46300E319B2 /* SideBar.swift in Sources */,
+				557B4C47276DC51600E319B2 /* ScreenTypes.swift in Sources */,
 				55577FFB27521334000968D4 /* FalconApp.swift in Sources */,
+				557B4C45276DC4EF00E319B2 /* Tools.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

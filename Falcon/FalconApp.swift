@@ -11,7 +11,7 @@ import SwiftUI
 struct FalconApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-        }
+            Main()
+        }.windowStyle(.hiddenTitleBar)
     }
 }
