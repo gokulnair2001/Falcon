@@ -21,6 +21,10 @@
 		557B4C51276DE7CC00E319B2 /* Profile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C50276DE7CC00E319B2 /* Profile.swift */; };
 		557B4C53276DEC9300E319B2 /* TabBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C52276DEC9300E319B2 /* TabBar.swift */; };
 		55909AF6276E12FB00AC041E /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55909AF5276E12FB00AC041E /* Network.swift */; };
+		55909AF9276E17D100AC041E /* HttpClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55909AF8276E17D100AC041E /* HttpClient.swift */; };
+		55909AFB276E17E500AC041E /* HttpErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55909AFA276E17E500AC041E /* HttpErrors.swift */; };
+		55909AFD276E19A000AC041E /* ImageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55909AFC276E19A000AC041E /* ImageModel.swift */; };
+		55909B00276E322D00AC041E /* Support.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55909AFF276E322D00AC041E /* Support.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +44,11 @@
 		557B4C50276DE7CC00E319B2 /* Profile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Profile.swift; sourceTree = "<group>"; };
 		557B4C52276DEC9300E319B2 /* TabBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBar.swift; sourceTree = "<group>"; };
 		55909AF5276E12FB00AC041E /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
+		55909AF8276E17D100AC041E /* HttpClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpClient.swift; sourceTree = "<group>"; };
+		55909AFA276E17E500AC041E /* HttpErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpErrors.swift; sourceTree = "<group>"; };
+		55909AFC276E19A000AC041E /* ImageModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageModel.swift; sourceTree = "<group>"; };
+		55909AFE276E22C700AC041E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist; path = Info.plist; sourceTree = "<group>"; };
+		55909AFF276E322D00AC041E /* Support.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Support.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +81,8 @@
 		55577FF927521334000968D4 /* Falcon */ = {
 			isa = PBXGroup;
 			children = (
+				55909AFE276E22C700AC041E /* Info.plist */,
+				55909AF7276E17B800AC041E /* Networking */,
 				557B4C3D276DC2A100E319B2 /* Model */,
 				557B4C3F276DC2B100E319B2 /* View Model */,
 				557B4C3E276DC2AC00E319B2 /* View */,
@@ -110,6 +121,7 @@
 				557B4C4C276DC6AF00E319B2 /* History.swift */,
 				557B4C4E276DC6FE00E319B2 /* Home.swift */,
 				557B4C50276DE7CC00E319B2 /* Profile.swift */,
+				55909AFF276E322D00AC041E /* Support.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -129,6 +141,16 @@
 				55909AF5276E12FB00AC041E /* Network.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		55909AF7276E17B800AC041E /* Networking */ = {
+			isa = PBXGroup;
+			children = (
+				55909AF8276E17D100AC041E /* HttpClient.swift */,
+				55909AFA276E17E500AC041E /* HttpErrors.swift */,
+				55909AFC276E19A000AC041E /* ImageModel.swift */,
+			);
+			path = Networking;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -202,12 +224,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				557B4C4B276DC6A700E319B2 /* Documentation.swift in Sources */,
+				55909AFD276E19A000AC041E /* ImageModel.swift in Sources */,
 				557B4C51276DE7CC00E319B2 /* Profile.swift in Sources */,
+				55909AFB276E17E500AC041E /* HttpErrors.swift in Sources */,
 				55909AF6276E12FB00AC041E /* Network.swift in Sources */,
+				55909B00276E322D00AC041E /* Support.swift in Sources */,
 				557B4C49276DC69B00E319B2 /* Settings.swift in Sources */,
 				557B4C4D276DC6AF00E319B2 /* History.swift in Sources */,
 				55577FFD27521334000968D4 /* Main.swift in Sources */,
 				557B4C4F276DC6FE00E319B2 /* Home.swift in Sources */,
+				55909AF9276E17D100AC041E /* HttpClient.swift in Sources */,
 				557B4C43276DC46300E319B2 /* SideBar.swift in Sources */,
 				557B4C47276DC51600E319B2 /* ScreenTypes.swift in Sources */,
 				557B4C53276DEC9300E319B2 /* TabBar.swift in Sources */,
@@ -348,6 +374,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Falcon/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
@@ -375,6 +402,7 @@
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = Falcon/Info.plist;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
