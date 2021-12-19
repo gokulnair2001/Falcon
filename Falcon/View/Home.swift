@@ -68,8 +68,8 @@ struct Home: View {
                             .multilineTextAlignment(.leading)
                             .border(.black.opacity(0.03))
                             .frame(minWidth: 200, idealWidth: 450, maxWidth: .infinity, minHeight: 400, idealHeight: getRect().height-100, maxHeight: .infinity, alignment: .topLeading)
-                            .clipShape(RoundedRectangle(cornerRadius: 8))
-                            .background(.black.opacity(0.08))
+                            .background(.black.opacity(0.03))
+                            
                     }
                 }.padding()
             }

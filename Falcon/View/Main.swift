@@ -9,7 +9,7 @@ import SwiftUI
 
 struct Main: View {
     
-    @State private var selectedScreen: ScreenType = .home
+    @State private var selectedScreen: ScreenType = .Home
     @State private var isShowingSupportView = false
     
     var body: some View {
@@ -22,15 +22,15 @@ struct Main: View {
                     TabBar(isShowingSupportView: $isShowingSupportView)
                     
                     switch selectedScreen {
-                    case .home:
+                    case .Home:
                         Home()
-                    case .settings:
+                    case .Settings:
                         Settings()
-                    case .history:
+                    case .History:
                         History()
-                    case .docs:
+                    case .Docs:
                         Documentation()
-                    case .profile:
+                    case .Profile:
                         Profile()
                     }
                 }
