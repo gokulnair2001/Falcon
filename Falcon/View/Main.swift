@@ -37,7 +37,9 @@ struct Main: View {
             }
             
             if isShowingSupportView {
+                Color(keys.basicColor).opacity(0.2)
                 Support(isShowingSupportView: $isShowingSupportView)
+                    .shadow(radius: 5)
             }
             
         }

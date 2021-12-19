@@ -13,16 +13,28 @@ struct Support: View {
     
     var body: some View {
         ZStack {
-            Color.red
-            Button{
-                withAnimation {
-                    isShowingSupportView = false
+            Color(.white)
+            VStack {
+               Text("SUPPORT")
+                    .foregroundColor(.black)
+                    .font(.title3)
+                    .bold()
+                    
+                Spacer()
+                Button{
+                    withAnimation {
+                        isShowingSupportView = false
+                    }
+                }label: {
+                    Text("dismiss")
+                        .foregroundColor(Color.black)
                 }
-            }label: {
-                Text("dismiss")
-                    .foregroundColor(Color.black)
-            }
+                .buttonStyle(.borderless)
+            }.padding()
+            
         }.frame(minWidth: 400, idealWidth: 400, maxWidth: 400, minHeight: 500, idealHeight: 500, maxHeight: 500, alignment: .center)
+            .cornerRadius(7)
+            .padding()
     }
 }
 
