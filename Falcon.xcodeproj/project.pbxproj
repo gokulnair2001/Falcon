@@ -8,6 +8,8 @@
 
 /* Begin PBXBuildFile section */
 		5505DFF9276EEF4600EB2CDA /* DropDown.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505DFF8276EEF4600EB2CDA /* DropDown.swift */; };
+		5505DFFB276F2A0F00EB2CDA /* JsonFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505DFFA276F2A0F00EB2CDA /* JsonFormats.swift */; };
+		5505DFFD276F2B1F00EB2CDA /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505DFFC276F2B1F00EB2CDA /* Keys.swift */; };
 		55577FFB27521334000968D4 /* FalconApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55577FFA27521334000968D4 /* FalconApp.swift */; };
 		55577FFD27521334000968D4 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55577FFC27521334000968D4 /* Main.swift */; };
 		55577FFF27521336000968D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55577FFE27521336000968D4 /* Assets.xcassets */; };
@@ -31,6 +33,8 @@
 
 /* Begin PBXFileReference section */
 		5505DFF8276EEF4600EB2CDA /* DropDown.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DropDown.swift; sourceTree = "<group>"; };
+		5505DFFA276F2A0F00EB2CDA /* JsonFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFormats.swift; sourceTree = "<group>"; };
+		5505DFFC276F2B1F00EB2CDA /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		55577FF727521334000968D4 /* Falcon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Falcon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55577FFA27521334000968D4 /* FalconApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FalconApp.swift; sourceTree = "<group>"; };
 		55577FFC27521334000968D4 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -145,6 +149,8 @@
 				557B4C46276DC51600E319B2 /* ScreenTypes.swift */,
 				55909AF5276E12FB00AC041E /* Network.swift */,
 				55909B01276E74E400AC041E /* RequestTypes.swift */,
+				5505DFFA276F2A0F00EB2CDA /* JsonFormats.swift */,
+				5505DFFC276F2B1F00EB2CDA /* Keys.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -238,10 +244,12 @@
 				557B4C49276DC69B00E319B2 /* Settings.swift in Sources */,
 				557B4C4D276DC6AF00E319B2 /* History.swift in Sources */,
 				5505DFF9276EEF4600EB2CDA /* DropDown.swift in Sources */,
+				5505DFFD276F2B1F00EB2CDA /* Keys.swift in Sources */,
 				55577FFD27521334000968D4 /* Main.swift in Sources */,
 				55909B02276E74E400AC041E /* RequestTypes.swift in Sources */,
 				557B4C4F276DC6FE00E319B2 /* Home.swift in Sources */,
 				55909AF9276E17D100AC041E /* HttpClient.swift in Sources */,
+				5505DFFB276F2A0F00EB2CDA /* JsonFormats.swift in Sources */,
 				557B4C43276DC46300E319B2 /* SideBar.swift in Sources */,
 				557B4C47276DC51600E319B2 /* ScreenTypes.swift in Sources */,
 				557B4C53276DEC9300E319B2 /* TabBar.swift in Sources */,
