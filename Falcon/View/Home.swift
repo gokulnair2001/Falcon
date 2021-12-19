@@ -12,7 +12,7 @@ struct Home: View {
     @State private var urlString = ""
     @State private var jsonResponse = " []"
     @State private var requestType: RequestType = .GET
-    @State private var jsonFormatType: JsonFormatTypes = .pretty
+    @State private var jsonFormatType: JsonFormatTypes = .raw
     @State private var statusCodeResponseString = "Send Request"
     @State private var statusCodeResponse: Int = 0
     @State private var dataSize: String = "0"
@@ -57,10 +57,13 @@ struct Home: View {
                 
                 VStack(alignment: .leading, spacing: 10) {
                     
-                    HStack(spacing: 0) {
-                        ForEach([JsonFormatTypes.pretty, JsonFormatTypes.raw, JsonFormatTypes.basic], id: \.self) {formats in
-                            jsonFormatButtons(type: formats)
-                        }
+                    HStack {
+                        HStack(spacing: 0.5) {
+                            ForEach([JsonFormatTypes.pretty, JsonFormatTypes.raw, JsonFormatTypes.basic], id: \.self) {formats in
+                                jsonFormatButtons(type: formats)
+                            }
+                        }.cornerRadius(5)
+                        
                         
                         Spacer()
                         
@@ -75,7 +78,7 @@ struct Home: View {
                                 .padding([.leading,.trailing], 5)
                         }
                         
-                    }.cornerRadius(4)
+                    }
                     
                     ScrollView {
                         Text(jsonResponse)
@@ -104,7 +107,7 @@ struct Home: View {
         HTTPUtility.shared.getData(url: url) { response in
             switch response {
             case .success(let data):
-                getJSON(data: data.data!)
+                getJSON(data: data.data!, type: jsonFormatType)
                 dataSize = "\(data.data!)"
                 statusCodeResponseString = data.httpStatusCodeDescription!
                 statusCodeResponse = data.httpStatusCode!
@@ -118,9 +121,16 @@ struct Home: View {
         }
     }
     
-    func getJSON(data: Data) {
-        let jsonString = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
-        jsonResponse = jsonString
+    func getJSON(data: Data, type jsonFormat: JsonFormatTypes) {
+        
+        switch jsonFormat {
+        case .raw:
+            jsonResponse = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+        case .pretty:
+            jsonResponse = "Upcoming feature"
+        case .basic:
+            jsonResponse = "Upcoming feature"
+        }
     }
     
     @ViewBuilder
@@ -128,11 +138,12 @@ struct Home: View {
         Button{
             withAnimation {
                 jsonFormatType = type
+                SendRequest(urlString)
             }
         }label: {
             Text(type.rawValue)
                 .font(.footnote)
-                .foregroundColor(type == jsonFormatType ? .white : .black)
+                .foregroundColor(type == jsonFormatType ? .brown : .black)
                 .frame(width: 80, height: 25)
                 .background(type == jsonFormatType ? Color(keys.basicColor) : Color(keys.basicColor).opacity(0.22))
         }
