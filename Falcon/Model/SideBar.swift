@@ -21,12 +21,12 @@ struct SideBar: View {
                 VStack {
                     VStack(spacing: 10) {
                         
-                        ForEach([ScreenType.home, ScreenType.docs, ScreenType.history, ScreenType.settings], id: \.self){image in
+                        ForEach([ScreenType.Home, ScreenType.Docs, ScreenType.History, ScreenType.Settings], id: \.self){image in
                             MenuButtons(image: image)
                         }
                         
                     }
-                    .padding(.top, 60)
+                    .padding(.top, 40)
                     .frame(width: 85)
                     .frame(maxHeight: .infinity, alignment: .top)
 
@@ -40,7 +40,7 @@ struct SideBar: View {
                             .clipShape(Circle())
                         //.padding()
                     }.onTapGesture {
-                        currentTab = .profile
+                        currentTab = .Profile
                     }
                     
                     Text("F A L C O N")
@@ -73,25 +73,32 @@ struct SideBar: View {
     /// Side Bar Button builder
     @ViewBuilder
     func MenuButtons(image: ScreenType) -> some View{
-        Image(systemName: image.rawValue)
-            .resizable()
-            .renderingMode(.template)
-            .aspectRatio(contentMode: .fit)
-            .foregroundColor(currentTab == image ? .black : .gray)
-            .frame(width: 22, height: 22)
-            .frame(width: 80, height: 50)
-            .overlay(
-                HStack {
-                    if currentTab == image {
-                        Capsule()
-                            .fill(Color.black)
-                            .matchedGeometryEffect(id: "TAB", in: animation)
-                            .frame(width: 2, height: 40)
+        VStack(spacing: 0) {
+            Image(systemName: image.rawValue)
+                .resizable()
+                .renderingMode(.template)
+                .aspectRatio(contentMode: .fit)
+                .foregroundColor(currentTab == image ? .black : .gray)
+                .frame(width: 22, height: 22)
+                .frame(width: 80, height: 50)
+                .overlay(
+                    HStack {
+                        if currentTab == image {
+                            Capsule()
+                                .fill(Color.black)
+                                .matchedGeometryEffect(id: "TAB", in: animation)
+                                .frame(width: 2, height: 40)
+                        }
                     }
-                }
-                , alignment: .trailing
-            )
-            .contentShape(Rectangle())
+                    , alignment: .trailing
+                )
+                .contentShape(Rectangle())
+            
+            Text(image.title)
+                .foregroundColor(currentTab == image ? .black : .black.opacity(0.2))
+                .font(.caption2)
+                .bold()
+        }
         
             .onTapGesture {
                 withAnimation(.spring()){
@@ -101,8 +108,8 @@ struct SideBar: View {
     }
 }
 
-//struct SideBar_Previews: PreviewProvider {
-//    static var previews: some View {
-//        Main(selectedScreen: .home)
-//    }
-//}
+struct SideBar_Previews: PreviewProvider {
+    static var previews: some View {
+        SideBar(currentTab: .constant(.Home))
+    }
+}
