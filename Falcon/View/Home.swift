@@ -11,40 +11,45 @@ struct Home: View {
     
     @State private var urlString = ""
     @State private var jsonResponse = ""
+    @State private var requestType: RequestType = .GET
     
     var body: some View {
-        ZStack(alignment: .top) {
+        ZStack(alignment: .topLeading) {
             Color("BG")
-            
-            VStack(spacing: 10) {
-                HStack(spacing: 10) {
-                    
-                    TextField("URL", text: $urlString)
-                        .foregroundColor(.black).opacity(0.6)
-                    
-                    
-                    Button{
-                        if urlString != "" {
-                            SendRequest(urlString)
-                        }
-                    }label: {
-                        Text("GET")
-                            .font(.body)
-                            .foregroundColor(.white)
-                            .frame(width: 90, height: 35, alignment: .center)
-                            .background(.black)
-                            .cornerRadius(5)
-                    }.buttonStyle(.borderless)
-                }.padding(10)
+        
+                DropDown(requestType: $requestType)
+                    .padding()
                 
-                ScrollView {
-                    Text(jsonResponse)
-                        .foregroundColor(.black)
-                        .lineLimit(nil)
-                        .multilineTextAlignment(.leading)
-                        .border(.black.opacity(0.03))
-                }
-            }
+                VStack(spacing: 10) {
+                    
+                    HStack(spacing: 10) {
+                        
+                        TextField("URL", text: $urlString)
+                            .foregroundColor(.black).opacity(0.6)
+                        
+                        
+                        Button{
+                            if urlString != "" {
+                                SendRequest(urlString)
+                            }
+                        }label: {
+                            Text("SEND")
+                                .font(.body)
+                                .foregroundColor(.white)
+                                .frame(width: 90, height: 35, alignment: .center)
+                                .background(.blue)
+                                .cornerRadius(5)
+                        }.buttonStyle(.borderless)
+                    }.padding(10)
+                    
+                    ScrollView {
+                        Text(jsonResponse)
+                            .foregroundColor(.black)
+                            .lineLimit(nil)
+                            .multilineTextAlignment(.leading)
+                            .border(.black.opacity(0.03))
+                    }
+                }.padding(.leading, 100)
         }
         .ignoresSafeArea()
         .frame(minWidth: 450, idealWidth: 550, maxWidth: .infinity, minHeight: 600, idealHeight: 650, maxHeight: .infinity, alignment: .center)

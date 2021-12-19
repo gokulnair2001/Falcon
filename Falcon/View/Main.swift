@@ -39,6 +39,7 @@ struct Main: View {
             if isShowingSupportView {
                 Support(isShowingSupportView: $isShowingSupportView)
             }
+            
         }
         .background(Color("BG"))
     }
