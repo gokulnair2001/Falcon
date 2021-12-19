@@ -32,6 +32,10 @@ struct TabBar: View {
                         .foregroundColor(isConnected ? .green : .red)
                         .frame(width: 25, height: 25, alignment: .center)
                     
+                        .onTapGesture {
+                            isConnected = NetworkConnection.Connection() ? true : false
+                        }
+                    
                     Button{
                         withAnimation {
                             isShowingSupportView.toggle()
