@@ -13,6 +13,9 @@ struct Home: View {
     @State private var jsonResponse = " []"
     @State private var requestType: RequestType = .GET
     @State private var jsonFormatType: JsonFormatTypes = .pretty
+    @State private var statusCodeResponseString = "Send Request"
+    @State private var statusCodeResponse: Int = 0
+    @State private var dataSize: String = "0"
     
     var body: some View {
         ZStack(alignment: .topLeading) {
@@ -58,6 +61,20 @@ struct Home: View {
                         ForEach([JsonFormatTypes.pretty, JsonFormatTypes.raw, JsonFormatTypes.basic], id: \.self) {formats in
                             jsonFormatButtons(type: formats)
                         }
+                        
+                        Spacer()
+                        
+                        HStack {
+                            Text("Request: \(statusCodeResponse)  \(statusCodeResponseString)")
+                                .foregroundColor(.black.opacity(0.6))
+                                .font(.caption)
+                            
+                            Text("Size: \(dataSize)")
+                                .foregroundColor(.black.opacity(0.6))
+                                .font(.caption)
+                                .padding([.leading,.trailing], 5)
+                        }
+                        
                     }.cornerRadius(4)
                     
                     ScrollView {
@@ -69,7 +86,7 @@ struct Home: View {
                             .border(.black.opacity(0.03))
                             .frame(minWidth: 200, idealWidth: 450, maxWidth: .infinity, minHeight: 400, idealHeight: getRect().height-100, maxHeight: .infinity, alignment: .topLeading)
                             .background(.black.opacity(0.03))
-                            
+                        
                     }
                 }.padding()
             }
@@ -87,8 +104,15 @@ struct Home: View {
         HTTPUtility.shared.getData(url: url) { response in
             switch response {
             case .success(let data):
-                getJSON(data: data)
+                getJSON(data: data.data!)
+                dataSize = "\(data.data!)"
+                statusCodeResponseString = data.httpStatusCodeDescription!
+                statusCodeResponse = data.httpStatusCode!
+                
             case .failure(let error):
+                dataSize = "0"
+                statusCodeResponseString = error.serverResponse!
+                statusCodeResponse = error.httpStatusCode!
                 jsonResponse = "⚠️ ERROR: \(error.localizedDescription)"
             }
         }

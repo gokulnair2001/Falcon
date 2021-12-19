@@ -1,5 +1,5 @@
 //
-//  HttpErrors.swift
+//  HttpResponses.swift
 //  Falcon
 //
 //  Created by Gokul Nair on 18/12/21.
@@ -7,6 +7,7 @@
 
 import Foundation
 
+//MARK: - Failure Response
 struct HttpErrors : Error
 {
     let reason: String?
@@ -25,3 +26,15 @@ struct HttpErrors : Error
     }
 }
 
+//MARK: - Success Response
+struct HttpResults {
+    let data: Data?
+    let httpStatusCode: Int?
+    let httpStatusCodeDescription: String?
+    
+    init(withServerResponse response: Data? = nil, forStatusCode statusCode: Int, errorMessage message: String){
+        self.data = response
+        self.httpStatusCode = statusCode
+        self.httpStatusCodeDescription = message
+    }
+}
