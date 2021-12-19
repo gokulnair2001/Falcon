@@ -44,7 +44,7 @@ public class HTTPUtility {
     }
     
     //MARK: - GET Data
-    func getData(url: String, completionHandler:@escaping(Result<Data, HttpErrors>)-> Void) {
+    func getData(url: String, completionHandler:@escaping(Result<HttpResults, HttpErrors>)-> Void) {
         
         guard let serviceUrl = URL(string: url) else { return }
         
@@ -59,7 +59,7 @@ public class HTTPUtility {
             if let data = data {
                 do {
                     let _ = try JSONSerialization.jsonObject(with: data, options: [])
-                    completionHandler(.success(data))
+                    completionHandler(.success(HttpResults(withServerResponse: data, forStatusCode: response.statusCode, errorMessage: HttpResponseCode.code(code: response.statusCode))))
                     
                 } catch {
                     completionHandler(.failure(HttpErrors(withServerResponse: data, forRequestUrl: request.url!, withHttpBody: request.httpBody, errorMessage: error.localizedDescription, forStatusCode: response.statusCode)))
