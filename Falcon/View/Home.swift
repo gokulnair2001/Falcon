@@ -92,7 +92,8 @@ struct Home: View {
                                 .lineLimit(nil)
                                 .multilineTextAlignment(.leading)
                                 .border(.black.opacity(0.03))
-                                .frame(minWidth: 200, idealWidth: 450, maxWidth: .infinity, minHeight: 400, idealHeight: getRect().height-100, maxHeight: .infinity, alignment: .topLeading)
+                            
+                            Spacer()
                             
                         }
                         
@@ -100,12 +101,11 @@ struct Home: View {
                         .background(.black.opacity(0.03))
                 }
                 
-                
                 if isShowingCluster {
                     Cluster()
                 }
                 
-            }
+            }.cornerRadius(9)
             
             DropDown(requestType: $requestType)
                 .padding([.top, .leading], 13)
@@ -166,5 +166,6 @@ struct Home: View {
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
         Home(isShowingCluster: .constant(true))
+            .frame(width: 800, height: 900, alignment: .center)
     }
 }

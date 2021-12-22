@@ -33,7 +33,12 @@ struct TabBar: View {
                         .frame(width: 25, height: 25, alignment: .center)
                     
                         .onTapGesture {
-                            isConnected = NetworkConnection.Connection() ? true : false
+                            withAnimation {
+                                isConnected = false
+                                DispatchQueue.main.asyncAfter(deadline: .now() + 2){
+                                    isConnected = NetworkConnection.Connection() ? true : false
+                                }
+                            }
                         }
                     
                     Button{

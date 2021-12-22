@@ -10,17 +10,25 @@ import SwiftUI
 struct Cluster: View {
     var body: some View {
         
-        VStack{
-            Text("Cluster View")
+        VStack(alignment: .leading){
+            
+            Text("CLUSTER")
+                .font(.headline)
                 .foregroundColor(.white)
-        }.frame(width: getRect().width/6)
-            .background(.red)
+                .frame(width: getRect().width/6)
+                .padding()
+            
+            Spacer()
+        }.background(Color(keys.basicColor))
+            .cornerRadius(9)
+            .foregroundColor(.white)
         
     }
 }
 
 struct Cluster_Previews: PreviewProvider {
     static var previews: some View {
-            Cluster()
+        //  Cluster()
+        Home(isShowingCluster: .constant(true))
     }
 }
