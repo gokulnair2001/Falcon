@@ -19,7 +19,7 @@ struct VerticalTabBar: View {
                     isShowing.toggle()
                 }
             }label: {
-                Image(systemName: "square.lefthalf.filled")
+                Image(systemName: isShowing ? "square.lefthalf.filled" : "square.righthalf.filled")
                     .font(Font.title.weight(.light))
                     .foregroundColor(.black)
                     .frame(width: 30, height: 30)
