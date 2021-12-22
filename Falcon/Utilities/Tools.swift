@@ -27,3 +27,15 @@ extension View {
         }
     }
 }
+
+//MARK: - Custom Divider
+struct FDivider: View {
+    @State var color: Color = .gray
+    @State var width: CGFloat = 2
+    var body: some View {
+        Rectangle()
+            .fill(color)
+            .frame(height: width)
+            .edgesIgnoringSafeArea(.horizontal)
+    }
+}

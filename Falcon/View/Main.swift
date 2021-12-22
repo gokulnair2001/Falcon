@@ -11,28 +11,33 @@ struct Main: View {
     
     @State private var selectedScreen: ScreenType = .Home
     @State private var isShowingSupportView = false
+    @State private var isShowingClusterView = true
     
     var body: some View {
         ZStack {
-            HStack(spacing: 10) {
+            HStack {
                 
                 SideBar(currentTab: $selectedScreen)
                 
                 VStack {
                     TabBar(isShowingSupportView: $isShowingSupportView)
                     
-                    switch selectedScreen {
-                    case .Home:
-                        Home()
-                    case .Settings:
-                        Settings()
-                    case .History:
-                        History()
-                    case .Docs:
-                        Documentation()
-                    case .Profile:
-                        Profile()
-                    }
+                    HStack(spacing: 10) {
+                        switch selectedScreen {
+                        case .Home:
+                            Home(isShowingCluster: $isShowingClusterView)
+                        case .Settings:
+                            Settings()
+                        case .History:
+                            History()
+                        case .Docs:
+                            Documentation()
+                        case .Profile:
+                            Profile()
+                        }
+                        
+                        VerticalTabBar(isShowing: $isShowingClusterView)
+                    }.padding(7)
                 }
             }
             
@@ -44,6 +49,7 @@ struct Main: View {
             
         }
         .background(Color("BG"))
+        .frame(minWidth: getRect().width/1.75, idealWidth: getRect().width-200, maxWidth: getRect().width, minHeight: getRect().height-300, idealHeight: getRect().height - 130, maxHeight: getRect().height, alignment: .center)
     }
 }
 

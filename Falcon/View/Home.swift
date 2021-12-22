@@ -17,81 +17,94 @@ struct Home: View {
     @State private var statusCodeResponse: Int = 0
     @State private var dataSize: String = "0"
     
+    @Binding var isShowingCluster: Bool
+    
     var body: some View {
         ZStack(alignment: .topLeading) {
             Color("BG")
             
-            VStack(spacing: 10) {
-                
-                HStack(spacing: 10) {
+            HStack {
+                VStack(spacing: 10) {
                     
-                    TextField("", text: $urlString)
-                        .placeholder(when: urlString.isEmpty, placeholder: {
-                            Text(" URL").foregroundColor(.gray)
-                        })
-                        .frame(height: 30)
-                        .background(.black.opacity(0.05))
-                        .multilineTextAlignment(.leading)
-                        .lineLimit(1)
-                        .foregroundColor(.black).opacity(0.6)
-                        .clipShape(RoundedRectangle(cornerRadius: 4))
-                        .overlay{
-                            RoundedRectangle(cornerRadius: 4)
-                                .stroke(.black.opacity(0.2), lineWidth: 1)
-                        }.textFieldStyle(.plain)
-                    
-                    Button{
-                        if urlString != "" {
-                            SendRequest(urlString)
-                        }
-                    }label: {
-                        Text("SEND")
-                            .font(.body)
-                            .foregroundColor(.white)
-                            .frame(width: 90, height: 35, alignment: .center)
-                            .background(.blue)
-                            .cornerRadius(5)
-                    }
-                }.padding(.leading, 100)
-                    .padding([.top, .trailing], 10)
-                
-                VStack(alignment: .leading, spacing: 10) {
-                    
-                    HStack {
-                        HStack(spacing: 0.5) {
-                            ForEach([JsonFormatTypes.pretty, JsonFormatTypes.raw, JsonFormatTypes.basic], id: \.self) {formats in
-                                jsonFormatButtons(type: formats)
+                    HStack(spacing: 10) {
+                        
+                        TextField("", text: $urlString)
+                            .placeholder(when: urlString.isEmpty, placeholder: {
+                                Text(" URL").foregroundColor(.gray)
+                            })
+                            .frame(height: 30)
+                            .background(.black.opacity(0.05))
+                            .multilineTextAlignment(.leading)
+                            .lineLimit(1)
+                            .foregroundColor(.black).opacity(0.6)
+                            .clipShape(RoundedRectangle(cornerRadius: 4))
+                            .overlay{
+                                RoundedRectangle(cornerRadius: 4)
+                                    .stroke(.black.opacity(0.2), lineWidth: 1)
+                            }.textFieldStyle(.plain)
+                        
+                        Button{
+                            if urlString != "" {
+                                SendRequest(urlString)
                             }
-                        }.cornerRadius(5)
-                        
-                        
-                        Spacer()
+                        }label: {
+                            Text("SEND")
+                                .font(.body)
+                                .foregroundColor(.white)
+                                .frame(width: 90, height: 35, alignment: .center)
+                                .background(.blue)
+                                .cornerRadius(5)
+                        }
+                    }.padding(.leading, 100)
+                        .padding([.top, .trailing], 10)
+                    
+                    VStack(alignment: .leading, spacing: 5) {
                         
                         HStack {
-                            Text("Request: \(statusCodeResponse)  \(statusCodeResponseString)")
-                                .foregroundColor(.black.opacity(0.6))
-                                .font(.caption)
+                            HStack(spacing: 0.5) {
+                                ForEach([JsonFormatTypes.pretty, JsonFormatTypes.raw, JsonFormatTypes.basic], id: \.self) {formats in
+                                    jsonFormatButtons(type: formats)
+                                }
+                            }.cornerRadius(5)
                             
-                            Text("Size: \(dataSize)")
-                                .foregroundColor(.black.opacity(0.6))
-                                .font(.caption)
-                                .padding([.leading,.trailing], 5)
+                            
+                            Spacer()
+                            
+                            HStack {
+                                Text("Request: \(statusCodeResponse)  \(statusCodeResponseString)")
+                                    .foregroundColor(.black.opacity(0.6))
+                                    .font(.caption)
+                                
+                                Text("Size: \(dataSize)")
+                                    .foregroundColor(.black.opacity(0.6))
+                                    .font(.caption)
+                                    .padding([.leading,.trailing], 5)
+                            }
+                            
                         }
                         
-                    }
-                    
-                    ScrollView {
-                        Text(jsonResponse)
-                            .font(.body)
-                            .foregroundColor(.black)
-                            .lineLimit(nil)
-                            .multilineTextAlignment(.leading)
-                            .border(.black.opacity(0.03))
-                            .frame(minWidth: 200, idealWidth: 450, maxWidth: .infinity, minHeight: 400, idealHeight: getRect().height-100, maxHeight: .infinity, alignment: .topLeading)
-                            .background(.black.opacity(0.03))
+                        FDivider(color: .gray, width: 1)
                         
-                    }
-                }.padding()
+                        ScrollView {
+                            Text(jsonResponse)
+                                .font(.body)
+                                .foregroundColor(.black)
+                                .lineLimit(nil)
+                                .multilineTextAlignment(.leading)
+                                .border(.black.opacity(0.03))
+                                .frame(minWidth: 200, idealWidth: 450, maxWidth: .infinity, minHeight: 400, idealHeight: getRect().height-100, maxHeight: .infinity, alignment: .topLeading)
+                            
+                        }
+                        
+                    }.padding()
+                        .background(.black.opacity(0.03))
+                }
+                
+                
+                if isShowingCluster {
+                    Cluster()
+                }
+                
             }
             
             DropDown(requestType: $requestType)
@@ -143,7 +156,7 @@ struct Home: View {
         }label: {
             Text(type.rawValue)
                 .font(.footnote)
-                .foregroundColor(type == jsonFormatType ? .brown : .black)
+                .foregroundColor(type == jsonFormatType ? .orange : .black)
                 .frame(width: 80, height: 25)
                 .background(type == jsonFormatType ? Color(keys.basicColor) : Color(keys.basicColor).opacity(0.22))
         }
@@ -152,6 +165,6 @@ struct Home: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home()
+        Home(isShowingCluster: .constant(true))
     }
 }
