@@ -15,14 +15,16 @@ struct HttpErrors : Error
     let requestUrl: URL?
     let requestBody: String?
     let serverResponse: String?
+    let responseTime: TimeInterval?
 
-    init(withServerResponse response: Data? = nil, forRequestUrl url: URL, withHttpBody body: Data? = nil, errorMessage message: String, forStatusCode statusCode: Int)
+    init(withServerResponse response: Data? = nil, forRequestUrl url: URL, withHttpBody body: Data? = nil, errorMessage message: String, forStatusCode statusCode: Int, responseTime: TimeInterval)
     {
         self.serverResponse = response != nil ? String(data: response!, encoding: .utf8) : nil
         self.requestUrl = url
         self.requestBody = body != nil ? String(data: body!, encoding: .utf8) : nil
         self.httpStatusCode = statusCode
         self.reason = message
+        self.responseTime = responseTime
     }
 }
 
@@ -31,10 +33,12 @@ struct HttpResults {
     let data: Data?
     let httpStatusCode: Int?
     let httpStatusCodeDescription: String?
+    let responseTime: TimeInterval?
     
-    init(withServerResponse response: Data? = nil, forStatusCode statusCode: Int, errorMessage message: String){
+    init(withServerResponse response: Data? = nil, forStatusCode statusCode: Int, errorMessage message: String, responseTime: TimeInterval){
         self.data = response
         self.httpStatusCode = statusCode
         self.httpStatusCodeDescription = message
+        self.responseTime = responseTime
     }
 }

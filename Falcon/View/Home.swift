@@ -16,12 +16,16 @@ struct Home: View {
     @State private var statusCodeResponseString = "Send Request"
     @State private var statusCodeResponse: Int = 0
     @State private var dataSize: String = "0"
+    @State private var responseTime: TimeInterval = 0
     
     @Binding var isShowingCluster: Bool
     
     var body: some View {
         ZStack(alignment: .topLeading) {
-            Color("BG")
+            
+            Color(.white)
+                .cornerRadius(11)
+                .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 0)
             
             HStack {
                 VStack(spacing: 10) {
@@ -71,15 +75,27 @@ struct Home: View {
                             Spacer()
                             
                             HStack {
-                                Text("Request: \(statusCodeResponse)  \(statusCodeResponseString)")
-                                    .foregroundColor(.black.opacity(0.6))
-                                    .font(.caption)
                                 
-                                Text("Size: \(dataSize)")
+                                Text("Request:")
                                     .foregroundColor(.black.opacity(0.6))
-                                    .font(.caption)
-                                    .padding([.leading,.trailing], 5)
+                                Text("\(statusCodeResponse)  \(statusCodeResponseString)")
+                                    .foregroundColor(keys.customGreen)
+                                    .padding(.leading, 5)
+                                
+                                Text("Size:")
+                                    .foregroundColor(.black.opacity(0.6))
+                                    .padding(.leading, 5)
+                                Text(dataSize)
+                                    .foregroundColor(keys.customGreen)
+                                    .padding(.trailing, 5)
+                                
+                                Text("Time:")
+                                    .foregroundColor(.black.opacity(0.6))
+                                Text("\(responseTime)")
+                                    .foregroundColor(keys.customGreen)
+                                    .padding(.trailing, 5)
                             }
+                            .font(.caption)
                             
                         }
                         
@@ -91,21 +107,20 @@ struct Home: View {
                                 .foregroundColor(.black)
                                 .lineLimit(nil)
                                 .multilineTextAlignment(.leading)
-                                .border(.black.opacity(0.03))
-                            
+                               
                             Spacer()
                             
                         }
                         
                     }.padding()
-                        .background(.black.opacity(0.03))
+                        .background(Color(keys.basicColor).opacity(0.03))
+                        .cornerRadius(13)
                 }
                 
                 if isShowingCluster {
                     Cluster()
                 }
-                
-            }.cornerRadius(9)
+            }//.padding()
             
             DropDown(requestType: $requestType)
                 .padding([.top, .leading], 13)
@@ -124,9 +139,11 @@ struct Home: View {
                 dataSize = "\(data.data!)"
                 statusCodeResponseString = data.httpStatusCodeDescription!
                 statusCodeResponse = data.httpStatusCode!
+                responseTime = data.responseTime!
                 
             case .failure(let error):
                 dataSize = "0"
+                responseTime = 0
                 statusCodeResponseString = error.serverResponse!
                 statusCodeResponse = error.httpStatusCode!
                 jsonResponse = "⚠️ ERROR: \(error.localizedDescription)"
@@ -165,7 +182,10 @@ struct Home: View {
 
 struct Home_Previews: PreviewProvider {
     static var previews: some View {
-        Home(isShowingCluster: .constant(true))
-            .frame(width: 800, height: 900, alignment: .center)
+        ZStack {
+            Color(.white)
+            Home(isShowingCluster: .constant(true))
+                .frame(width: 800, height: 900, alignment: .center)
+        }
     }
 }

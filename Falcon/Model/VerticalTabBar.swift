@@ -28,8 +28,9 @@ struct VerticalTabBar: View {
             
             Spacer(minLength: 2)
             
-        }.background(.black.opacity(0.15))
+        }.background(Color(.white))//.black.opacity(0.15)
         .cornerRadius(5)
+        .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 0)
     }
 }
 
