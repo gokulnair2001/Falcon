@@ -18,6 +18,14 @@ public class HTTPUtility {
         
         guard let serviceUrl = URL(string: url) else { return }
         
+        /// To get Response Time of Request sent
+        var timeTaken: TimeInterval = 0
+        serviceUrl.responseTime { (time) in
+            if let responseTime = time {
+                timeTaken = responseTime
+            }
+        }
+        
         let parameters = parameters
         
         var request = URLRequest(url: serviceUrl)
@@ -36,7 +44,7 @@ public class HTTPUtility {
                     let _ = try JSONSerialization.jsonObject(with: data, options: [])
                     completionHandler(.success(data))
                 } catch {
-                    completionHandler(.failure(HttpErrors(withServerResponse: data, forRequestUrl: request.url!, withHttpBody: request.httpBody, errorMessage: error.localizedDescription, forStatusCode: response.statusCode)))
+                    completionHandler(.failure(HttpErrors(withServerResponse: data, forRequestUrl: request.url!, withHttpBody: request.httpBody, errorMessage: error.localizedDescription, forStatusCode: response.statusCode, responseTime: timeTaken)))
                     print(error)
                 }
             }
@@ -47,6 +55,14 @@ public class HTTPUtility {
     func getData(url: String, completionHandler:@escaping(Result<HttpResults, HttpErrors>)-> Void) {
         
         guard let serviceUrl = URL(string: url) else { return }
+        
+        /// To get Response Time of Request sent
+        var timeTaken: TimeInterval = 0
+        serviceUrl.responseTime { (time) in
+            if let responseTime = time {
+                timeTaken = responseTime
+            }
+        }
         
         var request = URLRequest(url: serviceUrl)
         request.httpMethod = "GET"
@@ -59,10 +75,10 @@ public class HTTPUtility {
             if let data = data {
                 do {
                     let _ = try JSONSerialization.jsonObject(with: data, options: [])
-                    completionHandler(.success(HttpResults(withServerResponse: data, forStatusCode: response.statusCode, errorMessage: HttpResponseCode.code(code: response.statusCode))))
+                    completionHandler(.success(HttpResults(withServerResponse: data, forStatusCode: response.statusCode, errorMessage: HttpResponseCode.code(code: response.statusCode), responseTime: timeTaken)))
                     
                 } catch {
-                    completionHandler(.failure(HttpErrors(withServerResponse: data, forRequestUrl: request.url!, withHttpBody: request.httpBody, errorMessage: error.localizedDescription, forStatusCode: response.statusCode)))
+                    completionHandler(.failure(HttpErrors(withServerResponse: data, forRequestUrl: request.url!, withHttpBody: request.httpBody, errorMessage: error.localizedDescription, forStatusCode: response.statusCode, responseTime: timeTaken)))
                     print(error)
                 }
             }

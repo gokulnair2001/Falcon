@@ -48,7 +48,7 @@ struct TabBar: View {
                     }label: {
                          Image(systemName: "questionmark.circle")
                             .font(Font.title.weight(.regular))
-                            .foregroundColor(.black).opacity(0.6)
+                            .foregroundColor(.orange)
                             .frame(width: 25, height: 25, alignment: .center)
                             
                     }.buttonStyle(.borderless)

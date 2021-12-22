@@ -9,20 +9,18 @@ import SwiftUI
 
 struct Cluster: View {
     var body: some View {
-        
-        VStack(alignment: .leading){
             
-            Text("CLUSTER")
-                .font(.headline)
-                .foregroundColor(.white)
-                .frame(width: getRect().width/6)
-                .padding()
-            
-            Spacer()
-        }.background(Color(keys.basicColor))
-            .cornerRadius(9)
-            .foregroundColor(.white)
-        
+            VStack(alignment: .leading){
+                
+                Text("CLUSTER")
+                    .font(.headline)
+                    .foregroundColor(Color(keys.basicColor))
+                    .frame(width: getRect().width/6)
+                    .padding()
+                
+                Spacer()
+            }.background(Color(keys.basicColor).opacity(0.03))
+                .cornerRadius(10)
     }
 }
 
