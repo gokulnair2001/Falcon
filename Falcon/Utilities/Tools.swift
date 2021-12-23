@@ -39,3 +39,16 @@ struct FDivider: View {
             .edgesIgnoringSafeArea(.horizontal)
     }
 }
+
+//MARK: - Extension to make all List background transparent
+extension NSTableView {
+    open override func viewDidMoveToWindow() {
+        super.viewDidMoveToWindow()
+        
+        backgroundColor = NSColor.clear
+        if let esv = enclosingScrollView {
+            esv.drawsBackground = false
+        }
+    }
+}
+

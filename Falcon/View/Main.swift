@@ -12,6 +12,8 @@ struct Main: View {
     @State private var selectedScreen: ScreenType = .Home
     @State private var isShowingSupportView = false
     @State private var isShowingClusterView = true
+    @State private var menuBarViewType: MenuBarOptionTypes = .none
+    @State private var isShowingMenuSelections: Bool = false
     
     var body: some View {
         ZStack {
@@ -21,6 +23,8 @@ struct Main: View {
                 
                 VStack {
                     TabBar(isShowingSupportView: $isShowingSupportView)
+                    
+                    MenuBar(MenuSelected: $menuBarViewType, isShowingMenuView: $isShowingMenuSelections)
                     
                     HStack(spacing: 10) {
                         switch selectedScreen {
@@ -47,6 +51,22 @@ struct Main: View {
                     .shadow(radius: 5)
             }
             
+            /// Menu Bar View Stack
+            if isShowingMenuSelections {
+                Color(keys.basicColor).opacity(0.2)
+                HStack {
+                    switch menuBarViewType {
+                    case .Home:
+                        EmptyView()
+                    case .Import:
+                        ImportClusterView(importType: .folder, isShowingImportView: $isShowingMenuSelections)
+                    case .Scout:
+                        EmptyView()
+                    case .none:
+                        EmptyView()
+                    }
+                }.shadow(radius: 5)
+            }
         }
         .background(Color("BG"))
         .frame(minWidth: getRect().width/1.75, idealWidth: getRect().width-200, maxWidth: getRect().width, minHeight: getRect().height-300, idealHeight: getRect().height - 130, maxHeight: getRect().height, alignment: .center)
