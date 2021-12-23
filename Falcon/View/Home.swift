@@ -9,13 +9,13 @@ import SwiftUI
 
 struct Home: View {
     
-    @State private var urlString = ""
+    @State private var urlString = "https://mocky.io/v2/5e2703792f00000d00a4f91d"
     @State private var jsonResponse = " []"
     @State private var requestType: RequestType = .GET
     @State private var jsonFormatType: JsonFormatTypes = .raw
     @State private var statusCodeResponseString = "Send Request"
     @State private var statusCodeResponse: Int = 0
-    @State private var dataSize: String = "0"
+    @State private var dataSize: String = "0 bytes"
     @State private var responseTime: TimeInterval = 0
     
     @Binding var isShowingCluster: Bool
@@ -91,7 +91,7 @@ struct Home: View {
                                 
                                 Text("Time:")
                                     .foregroundColor(.black.opacity(0.6))
-                                Text("\(responseTime)")
+                                Text("\(responseTime) s")
                                     .foregroundColor(keys.customGreen)
                                     .padding(.trailing, 5)
                             }
@@ -118,7 +118,7 @@ struct Home: View {
                 }
                 
                 if isShowingCluster {
-                    Cluster()
+                    Cluster(clusters: cluster.stubs)
                 }
             }//.padding()
             
@@ -142,7 +142,7 @@ struct Home: View {
                 responseTime = data.responseTime!
                 
             case .failure(let error):
-                dataSize = "0"
+                dataSize = "0 bytes"
                 responseTime = 0
                 statusCodeResponseString = error.serverResponse!
                 statusCodeResponse = error.httpStatusCode!

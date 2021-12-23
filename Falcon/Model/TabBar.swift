@@ -24,6 +24,11 @@ struct TabBar: View {
                         .padding(.leading, 10)
                 }
                 
+                Text("FALCON")
+                    .font(.callout)
+                    .bold()
+                    .foregroundColor(.black)
+                
                 Spacer()
                 
                 HStack(spacing: 15) {
