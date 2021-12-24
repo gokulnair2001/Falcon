@@ -35,30 +35,31 @@ struct Cluster: View {
                 }
             }.padding([.leading, .trailing], 5)
             
-            List{
-                OutlineGroup(clusters, children: \.children){
+            List(clusters, children: \.APIs){
+               // OutlineGroup{
                     Text($0.title)
                         .foregroundColor(.black.opacity(0.8))
                         .frame(height: 25)
-                }
+               // }
                 
             }
-        }.background(Color(keys.basicColor).opacity(0.03))
+        }.background(Color(.white))
+            .cornerRadius(5)
+            .shadow(color: .black.opacity(0.2), radius: 2, x: 0, y: 0)
             .frame(width: getRect().width/6)
-            .cornerRadius(10)
     }
 }
 
 struct Cluster_Previews: PreviewProvider {
     static var previews: some View {
-        // Cluster(clusters: cluster.stubs)
-        Home(isShowingCluster: .constant(true))
+        Home(isShowingCluster: true)
             .frame(width: 1000, height: 800, alignment: .center)
     }
 }
 
 extension cluster {
     static var stubs:[cluster] = [
-        cluster(title: "Evo", children: [cluster(title: "Get Events", children: nil), cluster(title: "Post Events", children: nil)]), cluster(title: "Evo", children: [cluster(title: "Get Events", children: nil), cluster(title: "Post Events", children: nil)])
+        cluster(title: "2", APIs: [cluster(title: "22", APIs: [cluster(title: "222", APIs: nil)]),cluster(title: "22", APIs: [cluster(title: "222", APIs: nil)]),cluster(title: "22", APIs: [cluster(title: "222", APIs: nil)]),cluster(title: "22", APIs: [cluster(title: "222", APIs: nil)])]),
+        cluster(title: "3", APIs: [cluster(title: "33", APIs: nil)])
     ]
 }

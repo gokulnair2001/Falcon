@@ -10,5 +10,10 @@ import Foundation
 struct cluster: Identifiable {
     let id = UUID()
     let title: String
-    let children: [cluster]?
+    let APIs: [cluster]?
+}
+
+struct Children {
+    let name: String
+    let api: String
 }

@@ -29,7 +29,7 @@ struct Main: View {
                     HStack(spacing: 10) {
                         switch selectedScreen {
                         case .Home:
-                            Home(isShowingCluster: $isShowingClusterView)
+                            Home(isShowingCluster: isShowingClusterView)
                         case .Settings:
                             Settings()
                         case .History:
@@ -39,8 +39,6 @@ struct Main: View {
                         case .Profile:
                             Profile()
                         }
-                        
-                        VerticalTabBar(isShowing: $isShowingClusterView)
                     }.padding(7)
                 }
             }
@@ -53,13 +51,16 @@ struct Main: View {
             
             /// Menu Bar View Stack
             if isShowingMenuSelections {
-                Color(keys.basicColor).opacity(0.2)
+               
                 HStack {
                     switch menuBarViewType {
                     case .Home:
                         EmptyView()
                     case .Import:
-                        ImportClusterView(importType: .folder, isShowingImportView: $isShowingMenuSelections)
+                        ZStack{
+                            Color(keys.basicColor).opacity(0.2)
+                            ImportClusterView(importType: .folder, isShowingImportView: $isShowingMenuSelections)
+                        }
                     case .Scout:
                         EmptyView()
                     case .none:
