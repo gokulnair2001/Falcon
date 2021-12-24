@@ -29,8 +29,10 @@ struct MenuBar: View {
     @ViewBuilder
     func MenuButtonBuilder(type: MenuBarOptionTypes) -> some View {
         Button{
-            isShowingMenuView = true
-            MenuSelected = type
+            withAnimation {
+                isShowingMenuView = true
+                MenuSelected = type
+            }
         }label: {
             Text(type.rawValue)
                 .foregroundColor(.black.opacity(0.8))

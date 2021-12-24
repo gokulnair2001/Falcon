@@ -18,14 +18,14 @@ struct Home: View {
     @State private var dataSize: String = "0 bytes"
     @State private var responseTime: TimeInterval = 0
     
-    @Binding var isShowingCluster: Bool
+    @State var isShowingCluster: Bool
     
     var body: some View {
         ZStack(alignment: .topLeading) {
             
-            Color(.white)
-                .cornerRadius(11)
-                .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 0)
+//            Color(.white)
+//                .cornerRadius(11)
+//                .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 0)
             
             HStack {
                 VStack(spacing: 10) {
@@ -96,7 +96,6 @@ struct Home: View {
                                     .padding(.trailing, 5)
                             }
                             .font(.caption)
-                            
                         }
                         
                         FDivider(color: .gray, width: 1)
@@ -113,14 +112,18 @@ struct Home: View {
                         }
                         
                     }.padding()
-                        .background(Color(keys.basicColor).opacity(0.03))
-                        .cornerRadius(13)
+                        .background(.white)
+                        .cornerRadius(9)
+                        .shadow(color: .black.opacity(0.2), radius: 2, x: 0, y: 0)
                 }
                 
                 if isShowingCluster {
                     Cluster(clusters: cluster.stubs)
+                        
                 }
-            }//.padding()
+                
+                VerticalTabBar(isShowing: $isShowingCluster)
+            }
             
             DropDown(requestType: $requestType)
                 .padding([.top, .leading], 13)
@@ -184,8 +187,8 @@ struct Home_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color(.white)
-            Home(isShowingCluster: .constant(true))
-                .frame(width: 800, height: 900, alignment: .center)
+            Home(isShowingCluster: true)
+                .frame(width: 1100, height: 800, alignment: .center)
         }
     }
 }

@@ -10,7 +10,7 @@ import SwiftUI
 struct ImportViewBar: View {
     
     @Binding var importTypeSelected:ImportTypes
-    @Binding var isShowingMenuView: Bool
+   // @Binding var isShowingMenuView: Bool
     
     var body: some View {
         VStack(alignment: .leading) {
@@ -31,13 +31,6 @@ struct ImportViewBar: View {
                 
                 Spacer()
                 
-                Button {
-                    isShowingMenuView = false
-                }label: {
-                    Image(systemName: "xmark")
-                        .font(Font.title.weight(.regular))                        .frame(width: 15, height: 15, alignment: .center)
-                }
-                
             }.buttonStyle(.borderless)
                 .font(.callout)
                 .foregroundColor(.black.opacity(0.6))
@@ -52,7 +45,7 @@ struct ImportViewBar_Previews: PreviewProvider {
     static var previews: some View {
         ZStack(alignment: .topLeading) {
             Color.white
-            ImportViewBar(importTypeSelected: .constant(.folder), isShowingMenuView: .constant(false))
+            ImportViewBar(importTypeSelected: .constant(.folder))
         }
     }
 }

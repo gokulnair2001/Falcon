@@ -17,8 +17,26 @@ struct ImportClusterView: View {
         ZStack(alignment: .topLeading) {
             Color(.white)
             
-            VStack {
-                ImportViewBar(importTypeSelected: $importType, isShowingMenuView: $isShowingImportView)
+            VStack(alignment: .leading) {
+                
+                HStack {
+                    Text("IMPORT")
+                        .font(.headline)
+                        
+                    Spacer()
+                    Button {
+                        isShowingImportView = false
+                    }label: {
+                        Image(systemName: "xmark")
+                            .frame(width: 15, height: 15, alignment: .center)
+                            .font(Font.system(size: 15))
+                        
+                    }.buttonStyle(.borderless)
+                    
+                }.foregroundColor(Color(keys.basicColor))
+                .padding([.leading, .top, .trailing], 10)
+                
+                ImportViewBar(importTypeSelected: $importType)
            
                 switch importType {
                 case .folder:
