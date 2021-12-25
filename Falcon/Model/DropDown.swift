@@ -18,7 +18,7 @@ struct DropDown: View {
             HStack {
                 Text(requestType.rawValue)
                     .font(.body)
-                    .foregroundColor(requestColor(with: requestType))
+                    .foregroundColor(requestColorCode(with: requestType))
                     .frame(width: 80, height: 30, alignment: .center)
                     .background(Color("DropDown"))
                     .overlay{
@@ -49,7 +49,7 @@ struct DropDown: View {
     @ViewBuilder
     func RequestButtonBuilder(type: RequestType) -> some View {
         Text(type.rawValue)
-            .foregroundColor(requestColor(with: type))
+            .foregroundColor(requestColorCode(with: type))
            // .foregroundColor(.black)
             .overlay{
                 RoundedRectangle(cornerRadius: 4)
@@ -66,18 +66,7 @@ struct DropDown: View {
             }
     }
     
-    func requestColor(with request: RequestType) -> Color{
-        switch request {
-        case .POST:
-            return .green
-        case .GET:
-            return .orange
-        case .DELETE:
-            return .red
-        case .UPDATE:
-            return .blue
-        }
-    }
+   
 }
 
 struct DropDown_Previews: PreviewProvider {

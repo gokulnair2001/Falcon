@@ -6,14 +6,17 @@
 //
 
 import Foundation
+import SwiftUI
 
-struct cluster: Identifiable {
+struct ClusterModel: Identifiable {
     let id = UUID()
     let title: String
-    let APIs: [cluster]?
+    let APIs: [Collection]
 }
 
-struct Children {
+struct Collection: Identifiable {
+    let id = UUID()
     let name: String
-    let api: String
+    let type: RequestType
+    let url: String
 }

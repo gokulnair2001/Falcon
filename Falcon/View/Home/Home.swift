@@ -118,8 +118,7 @@ struct Home: View {
                 }
                 
                 if isShowingCluster {
-                    Cluster(clusters: cluster.stubs)
-                        
+                    Cluster()
                 }
                 
                 VerticalTabBar(isShowing: $isShowingCluster)

@@ -52,3 +52,18 @@ extension NSTableView {
     }
 }
 
+//MARK: - Request Color Code
+extension View {
+    func requestColorCode(with request: RequestType) -> Color{
+        switch request {
+        case .POST:
+            return .green
+        case .GET:
+            return .orange
+        case .DELETE:
+            return .red
+        case .UPDATE:
+            return .blue
+        }
+    }
+}

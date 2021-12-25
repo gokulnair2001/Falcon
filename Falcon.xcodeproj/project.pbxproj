@@ -41,6 +41,7 @@
 		55AF15722774894700DB8CCA /* ImportTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF15712774894700DB8CCA /* ImportTypes.swift */; };
 		55AF157427748AD100DB8CCA /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF157327748AD100DB8CCA /* MenuBar.swift */; };
 		55AF157627748D4000DB8CCA /* MenuBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF157527748D4000DB8CCA /* MenuBarOptions.swift */; };
+		55D0C67D27761EBA00759916 /* ClusterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0C67C27761EBA00759916 /* ClusterDetail.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -81,6 +82,7 @@
 		55AF15712774894700DB8CCA /* ImportTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportTypes.swift; sourceTree = "<group>"; };
 		55AF157327748AD100DB8CCA /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		55AF157527748D4000DB8CCA /* MenuBarOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarOptions.swift; sourceTree = "<group>"; };
+		55D0C67C27761EBA00759916 /* ClusterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterDetail.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -142,8 +144,8 @@
 				557B4C52276DEC9300E319B2 /* TabBar.swift */,
 				5505DFF8276EEF4600EB2CDA /* DropDown.swift */,
 				55A298B427731F9D00AA74E4 /* VerticalTabBar.swift */,
-				5576915927742F310014E7ED /* ClusterModel.swift */,
 				55AF157327748AD100DB8CCA /* MenuBar.swift */,
+				5576915927742F310014E7ED /* ClusterModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -212,6 +214,7 @@
 			isa = PBXGroup;
 			children = (
 				55A298B2277313AC00AA74E4 /* Cluster.swift */,
+				55D0C67C27761EBA00759916 /* ClusterDetail.swift */,
 				557B4C4E276DC6FE00E319B2 /* Home.swift */,
 			);
 			path = Home;
@@ -308,6 +311,7 @@
 				5505DFF9276EEF4600EB2CDA /* DropDown.swift in Sources */,
 				5505DFFD276F2B1F00EB2CDA /* Keys.swift in Sources */,
 				55577FFD27521334000968D4 /* Main.swift in Sources */,
+				55D0C67D27761EBA00759916 /* ClusterDetail.swift in Sources */,
 				55909B02276E74E400AC041E /* RequestTypes.swift in Sources */,
 				557B4C4F276DC6FE00E319B2 /* Home.swift in Sources */,
 				55909AF9276E17D100AC041E /* HttpClient.swift in Sources */,
