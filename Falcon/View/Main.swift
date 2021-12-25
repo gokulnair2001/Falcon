@@ -17,6 +17,7 @@ struct Main: View {
     
     var body: some View {
         ZStack {
+            
             HStack {
                 
                 SideBar(currentTab: $selectedScreen)

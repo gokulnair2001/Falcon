@@ -38,7 +38,6 @@ struct SideBar: View {
                             .aspectRatio(contentMode: .fill)
                             .frame(width: 40, height: 40)
                             .clipShape(Circle())
-                        //.padding()
                     }.onTapGesture {
                         currentTab = .Profile
                     }
@@ -81,17 +80,6 @@ struct SideBar: View {
                 .foregroundColor(currentTab == image ? .black : .gray)
                 .frame(width: 22, height: 22)
                 .frame(width: 80, height: 50)
-                .overlay(
-                    HStack {
-                        if currentTab == image {
-                            Capsule()
-                                .fill(Color.black)
-                                .matchedGeometryEffect(id: "TAB", in: animation)
-                                .frame(width: 2, height: 40)
-                        }
-                    }
-                    , alignment: .trailing
-                )
                 .contentShape(Rectangle())
             
             Text(image.title)
@@ -99,6 +87,17 @@ struct SideBar: View {
                 .font(.caption2)
                 .bold()
         }
+        .overlay(
+            HStack {
+                if currentTab == image {
+                    Capsule()
+                        .fill(Color.black)
+                        .matchedGeometryEffect(id: "TAB", in: animation)
+                        .frame(width: 2, height: 60)
+                }
+            }
+            , alignment: .trailing
+        )
         
             .onTapGesture {
                 withAnimation(.spring()){
