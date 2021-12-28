@@ -1,5 +1,5 @@
 # Falcon
-Falcon is an API Client that makes it easy for developers to create, test and document APIs.
+Falcon is an API Client that makes it easy for developers to create, test and document APIs
 
 FALCON is an API development, Testing and documentation App built purely with SwiftUI ❤️ 
 
