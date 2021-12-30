@@ -30,7 +30,7 @@ struct Cluster: View {
                         .resizable()
                         .font(Font.title.weight(.light))
                         .foregroundColor(.black.opacity(0.7))
-                        .frame(width: 18, height: 18)
+                        .frame(width: 25, height: 18)
                 }
                 
                 Button{
@@ -50,18 +50,27 @@ struct Cluster: View {
                     Color.white
                     List(ClusterModel.stubs, id: \.id){ data in
                         NavigationLink(destination: ClusterDetail(clusterDetails: data)) {
-                            Text(data.title)
-                                .foregroundColor(.black)
+                            HStack {
+                                Image(systemName: "folder")
+                                    .resizable()
+                                    .frame(width: 15, height: 15, alignment: .center)
+                                    .font(Font.title.weight(.light))
+                                    .foregroundColor(.black)
+                                
+                                Text(data.title)
+                                    .foregroundColor(.black)
+                                    .font(.caption2)
+                                    .bold()
+                                    .padding(.leading, 3)
+                                
+                                Spacer()
+                            }
                         }
                     }.padding()
-                        //.background(.black.opacity(0.04))
-                        //.cornerRadius(8)
                 }
             }
             
-        }.background(Color(.white))
-            .cornerRadius(5)
-            .shadow(color: .black.opacity(0.2), radius: 2, x: 0, y: 0)
+        }.FShadow(radius: 5)
             .frame(width: getRect().width/5.5)
     }
     
