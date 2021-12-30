@@ -23,10 +23,6 @@ struct Home: View {
     var body: some View {
         ZStack(alignment: .topLeading) {
             
-//            Color(.white)
-//                .cornerRadius(11)
-//                .shadow(color: .black.opacity(0.3), radius: 2, x: 0, y: 0)
-            
             HStack {
                 VStack(spacing: 10) {
                     
@@ -62,64 +58,91 @@ struct Home: View {
                     }.padding(.leading, 100)
                         .padding([.top, .trailing], 10)
                     
-                    VStack(alignment: .leading, spacing: 5) {
-                        
-                        HStack {
-                            HStack(spacing: 0.5) {
-                                ForEach([JsonFormatTypes.pretty, JsonFormatTypes.raw, JsonFormatTypes.basic], id: \.self) {formats in
-                                    jsonFormatButtons(type: formats)
-                                }
-                            }.cornerRadius(5)
+                    ZStack {
+                        VStack(alignment: .leading, spacing: 5) {
                             
+                            ZStack {
+                                HStack {
+                                    ScrollView {
+                                        Text("BODY")
+                                            .font(.body)
+                                            .foregroundColor(.black)
+                                            .lineLimit(nil)
+                                            .multilineTextAlignment(.leading)
+                                    }
+                                    
+                                    Spacer()
+                                    
+                                }.frame(height: 250)
+                            }.FShadow(radius: 7)
                             
                             Spacer()
                             
-                            HStack {
+                            ZStack {
                                 
-                                Text("Request:")
-                                    .foregroundColor(.black.opacity(0.6))
-                                Text("\(statusCodeResponse)  \(statusCodeResponseString)")
-                                    .foregroundColor(keys.customGreen)
-                                    .padding(.leading, 5)
-                                
-                                Text("Size:")
-                                    .foregroundColor(.black.opacity(0.6))
-                                    .padding(.leading, 5)
-                                Text(dataSize)
-                                    .foregroundColor(keys.customGreen)
-                                    .padding(.trailing, 5)
-                                
-                                Text("Time:")
-                                    .foregroundColor(.black.opacity(0.6))
-                                Text("\(responseTime) s")
-                                    .foregroundColor(keys.customGreen)
-                                    .padding(.trailing, 5)
-                            }
-                            .font(.caption)
+                                VStack(alignment: .leading) {
+                                    
+                                    HStack {
+                                        HStack(spacing: 0.5) {
+                                            ForEach([JsonFormatTypes.pretty, JsonFormatTypes.raw, JsonFormatTypes.basic], id: \.self) {formats in
+                                                jsonFormatButtons(type: formats)
+                                            }
+                                        }.cornerRadius(5)
+                                        
+                                        Spacer()
+                                        
+                                        HStack {
+                                            
+                                            Text("Request:")
+                                                .foregroundColor(.black.opacity(0.6))
+                                            Text("\(statusCodeResponse)  \(statusCodeResponseString)")
+                                                .foregroundColor(keys.customGreen)
+                                                .padding(.leading, 5)
+                                            
+                                            Text("Size:")
+                                                .foregroundColor(.black.opacity(0.6))
+                                                .padding(.leading, 5)
+                                            Text(dataSize)
+                                                .foregroundColor(keys.customGreen)
+                                                .padding(.trailing, 5)
+                                            
+                                            Text("Time:")
+                                                .foregroundColor(.black.opacity(0.6))
+                                            Text("\(responseTime) s")
+                                                .foregroundColor(keys.customGreen)
+                                                .padding(.trailing, 5)
+                                        }
+                                        .font(.caption)
+                                    }
+                                    
+                                    FDivider(color: .gray, width: 1)
+                                    
+                                    ScrollView {
+                                        Text(jsonResponse)
+                                            .font(.body)
+                                            .foregroundColor(.black)
+                                            .lineLimit(nil)
+                                            .multilineTextAlignment(.leading)
+                                        
+                                        Spacer()
+                                        
+                                    }
+                                }.padding()
+                            }.FShadow(radius: 9)
                         }
-                        
-                        FDivider(color: .gray, width: 1)
-                        
-                        ScrollView {
-                            Text(jsonResponse)
-                                .font(.body)
-                                .foregroundColor(.black)
-                                .lineLimit(nil)
-                                .multilineTextAlignment(.leading)
-                               
-                            Spacer()
-                            
-                        }
-                        
-                    }.padding()
-                        .background(.white)
-                        .cornerRadius(9)
-                        .shadow(color: .black.opacity(0.2), radius: 2, x: 0, y: 0)
+                    }
                 }
                 
                 if isShowingCluster {
+                    
+                    Spacer()
+                    Spacer()
+                    
                     Cluster()
                 }
+                
+                Spacer()
+                Spacer()
                 
                 VerticalTabBar(isShowing: $isShowingCluster)
             }
@@ -158,6 +181,7 @@ struct Home: View {
         switch jsonFormat {
         case .raw:
             jsonResponse = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
+            
         case .pretty:
             jsonResponse = "Upcoming feature"
         case .basic:

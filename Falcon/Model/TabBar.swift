@@ -36,7 +36,7 @@ struct TabBar: View {
                         .font(Font.title.weight(.light))
                         .foregroundColor(isConnected ? .green : .red)
                         .frame(width: 25, height: 25, alignment: .center)
-                    
+                        
                         .onTapGesture {
                             withAnimation {
                                 isConnected = false

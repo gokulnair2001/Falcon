@@ -20,12 +20,12 @@ extension View {
         when shouldShow: Bool,
         alignment: Alignment = .leading,
         @ViewBuilder placeholder: () -> Content) -> some View {
-
-        ZStack(alignment: alignment) {
-            placeholder().opacity(shouldShow ? 1 : 0)
-            self
+            
+            ZStack(alignment: alignment) {
+                placeholder().opacity(shouldShow ? 1 : 0)
+                self
+            }
         }
-    }
 }
 
 //MARK: - Custom Divider
@@ -65,5 +65,25 @@ extension View {
         case .UPDATE:
             return .blue
         }
+    }
+}
+
+//MARK: - Default Shadow Modifier
+
+struct FalconShadow: ViewModifier {
+    
+    @State var radius:CGFloat = 9
+    
+    func body(content: Content) -> some View {
+        content
+            .background(.white)
+            .cornerRadius(radius)
+            .shadow(color: .black.opacity(0.2), radius: 2, x: 0, y: 0)
+    }
+}
+
+extension View {
+    func FShadow(radius: CGFloat) -> some View {
+        modifier(FalconShadow(radius: radius))
     }
 }
