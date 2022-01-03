@@ -52,6 +52,17 @@ extension NSTableView {
     }
 }
 
+//MARK: - Extension to make all TextEditor background colour customisable
+extension NSTextView {
+    open override var frame: CGRect {
+        didSet {
+            backgroundColor = .clear //<<here clear
+            drawsBackground = true
+        }
+
+    }
+}
+
 //MARK: - Request Color Code
 extension View {
     func requestColorCode(with request: RequestType) -> Color{

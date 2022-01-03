@@ -9,12 +9,18 @@ import SwiftUI
 
 struct Profile: View {
     
+    @StateObject private var iCloudViewModel = CloudKitUserSetupViewModel()
+    
     var body: some View {
         ZStack {
             Color("BG")
-            Text("PROFILE")
-                .foregroundColor(.black)
-                .bold()
+            VStack {
+                
+                Text("\(iCloudViewModel.userName)")
+                Text("\(iCloudViewModel.isSignedIn.description)")
+                Text(iCloudViewModel.statusTag)
+                
+            }.foregroundColor(.blue)
         }.ignoresSafeArea()
     }
 }

@@ -9,7 +9,8 @@ import SwiftUI
 
 struct Home: View {
     
-    @State private var urlString = "https://mocky.io/v2/5e2703792f00000d00a4f91d"
+    @State private var urlString = "https://vit-events-app.herokuapp.com/events/likeNew"//"https://mocky.io/v2/5e2703792f00000d00a4f91d"
+    @State private var bodyText = ""
     @State private var jsonResponse = " []"
     @State private var requestType: RequestType = .GET
     @State private var jsonFormatType: JsonFormatTypes = .raw
@@ -45,7 +46,7 @@ struct Home: View {
                         
                         Button{
                             if urlString != "" {
-                                SendRequest(urlString)
+                                SendRequest(with: urlString, type: requestType)
                             }
                         }label: {
                             Text("SEND")
@@ -62,18 +63,22 @@ struct Home: View {
                         VStack(alignment: .leading, spacing: 5) {
                             
                             ZStack {
-                                HStack {
-                                    ScrollView {
-                                        Text("BODY")
-                                            .font(.body)
-                                            .foregroundColor(.black)
-                                            .lineLimit(nil)
-                                            .multilineTextAlignment(.leading)
-                                    }
+                                
+                                HStack(alignment: .top) {
                                     
-                                    Spacer()
+                                    TextEditor(text: $bodyText)
+                                        .placeholder(when: urlString.isEmpty, placeholder: {
+                                            Text("Body").foregroundColor(.black)
+                                        })
+                                        .font(.custom("Avenir Medium", size: 15))
+                                        .frame(height: 250)
+                                        .multilineTextAlignment(.leading)
+                                        .foregroundColor(.black)
+                                        .background(Color.white)
+                                        .padding(5)
                                     
                                 }.frame(height: 250)
+                                
                             }.FShadow(radius: 7)
                             
                             Spacer()
@@ -97,6 +102,7 @@ struct Home: View {
                                                 .foregroundColor(.black.opacity(0.6))
                                             Text("\(statusCodeResponse)  \(statusCodeResponseString)")
                                                 .foregroundColor(keys.customGreen)
+                                                .truncationMode(.head)
                                                 .padding(.leading, 5)
                                             
                                             Text("Size:")
@@ -113,6 +119,7 @@ struct Home: View {
                                                 .padding(.trailing, 5)
                                         }
                                         .font(.caption)
+                                        .frame(height: 30)
                                     }
                                     
                                     FDivider(color: .gray, width: 1)
@@ -156,11 +163,27 @@ struct Home: View {
         .buttonStyle(.borderless)
     }
     
-    func SendRequest(_ url: String) {
+    func SendRequest(with url: String, type requestType: RequestType) {
+        
+        switch requestType {
+        case .POST:
+            postData(with: url)
+        case .GET:
+            getData(with: url)
+        case .DELETE:
+            print("DELETE")
+        case .UPDATE:
+            print("UPDATE")
+        }
+        
+       
+    }
+    
+    func getData(with url: String) {
         HTTPUtility.shared.getData(url: url) { response in
             switch response {
             case .success(let data):
-                getJSON(data: data.data!, type: jsonFormatType)
+                formatJSON(data: data.data!, type: jsonFormatType)
                 dataSize = "\(data.data!)"
                 statusCodeResponseString = data.httpStatusCodeDescription!
                 statusCodeResponse = data.httpStatusCode!
@@ -176,12 +199,31 @@ struct Home: View {
         }
     }
     
-    func getJSON(data: Data, type jsonFormat: JsonFormatTypes) {
+    func postData(with url: String) {
+        HTTPUtility.shared.postData(url: url, parameters: bodyText) { response in
+            switch response {
+            case .success(let data):
+                //formatJSON(data: data.data!, type: jsonFormatType)
+                jsonResponse = String(data: data.data!, encoding: String.Encoding.utf8)!
+                dataSize = "\(data.data!)"
+                statusCodeResponseString = data.httpStatusCodeDescription!
+                statusCodeResponse = data.httpStatusCode!
+                responseTime = data.responseTime!
+            case .failure(let error):
+                dataSize = "0 bytes"
+                responseTime = 0
+                statusCodeResponseString = error.serverResponse!
+                statusCodeResponse = error.httpStatusCode!
+                jsonResponse = "⚠️ ERROR: \(error.localizedDescription)"
+            }
+        }
+    }
+    
+    func formatJSON(data: Data, type jsonFormat: JsonFormatTypes) {
         
         switch jsonFormat {
         case .raw:
             jsonResponse = NSString(data: data, encoding: String.Encoding.utf8.rawValue)! as String
-            
         case .pretty:
             jsonResponse = "Upcoming feature"
         case .basic:
@@ -194,7 +236,7 @@ struct Home: View {
         Button{
             withAnimation {
                 jsonFormatType = type
-                SendRequest(urlString)
+              //  SendRequest(url: urlString, requestType: <#RequestType#>)
             }
         }label: {
             Text(type.rawValue)
