@@ -45,6 +45,8 @@
 		55AF157427748AD100DB8CCA /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF157327748AD100DB8CCA /* MenuBar.swift */; };
 		55AF157627748D4000DB8CCA /* MenuBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF157527748D4000DB8CCA /* MenuBarOptions.swift */; };
 		55D0C67D27761EBA00759916 /* ClusterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0C67C27761EBA00759916 /* ClusterDetail.swift */; };
+		55E12DB02785D4310039D8A4 /* ClusterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E12DAF2785D4310039D8A4 /* ClusterForm.swift */; };
+		55E12DB42785D4850039D8A4 /* iCloudUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E12DB32785D4850039D8A4 /* iCloudUtility.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -89,6 +91,8 @@
 		55AF157327748AD100DB8CCA /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		55AF157527748D4000DB8CCA /* MenuBarOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarOptions.swift; sourceTree = "<group>"; };
 		55D0C67C27761EBA00759916 /* ClusterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterDetail.swift; sourceTree = "<group>"; };
+		55E12DAF2785D4310039D8A4 /* ClusterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterForm.swift; sourceTree = "<group>"; };
+		55E12DB32785D4850039D8A4 /* iCloudUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudUtility.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -151,6 +155,7 @@
 			children = (
 				5564992A2782E82800ADBD54 /* UserSetup.swift */,
 				5564992C27830B9800ADBD54 /* iCloudErrorTypes.swift */,
+				55E12DB32785D4850039D8A4 /* iCloudUtility.swift */,
 			);
 			path = iCloud;
 			sourceTree = "<group>";
@@ -242,6 +247,7 @@
 				55A298B2277313AC00AA74E4 /* Cluster.swift */,
 				55D0C67C27761EBA00759916 /* ClusterDetail.swift */,
 				557B4C4E276DC6FE00E319B2 /* Home.swift */,
+				55E12DAF2785D4310039D8A4 /* ClusterForm.swift */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -317,6 +323,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				55AF156E277488B700DB8CCA /* ImportLink.swift in Sources */,
+				55E12DB42785D4850039D8A4 /* iCloudUtility.swift in Sources */,
 				557B4C4B276DC6A700E319B2 /* Documentation.swift in Sources */,
 				55AF1570277488D100DB8CCA /* ImportViewBar.swift in Sources */,
 				55909AFD276E19A000AC041E /* ImageModel.swift in Sources */,
@@ -331,6 +338,7 @@
 				55A298B527731F9D00AA74E4 /* VerticalTabBar.swift in Sources */,
 				553075A1276F8A58005FC33C /* HttpStatusCodes.swift in Sources */,
 				5564992D27830B9800ADBD54 /* iCloudErrorTypes.swift in Sources */,
+				55E12DB02785D4310039D8A4 /* ClusterForm.swift in Sources */,
 				557B4C49276DC69B00E319B2 /* Settings.swift in Sources */,
 				557B4C4D276DC6AF00E319B2 /* History.swift in Sources */,
 				55AF15692774858000DB8CCA /* ImportClusterView.swift in Sources */,

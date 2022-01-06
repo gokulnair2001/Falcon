@@ -27,9 +27,9 @@ struct ImportClusterView: View {
                     Button {
                         isShowingImportView = false
                     }label: {
-                        Image(systemName: "xmark")
-                            .frame(width: 15, height: 15, alignment: .center)
-                            .font(Font.system(size: 15))
+                        Text("Close")
+                            .font(.body)
+                            .foregroundColor(.gray)
                         
                     }.buttonStyle(.borderless)
                     
