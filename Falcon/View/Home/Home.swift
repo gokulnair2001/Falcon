@@ -19,8 +19,9 @@ struct Home: View {
     @State private var dataSize: String = "0 bytes"
     @State private var responseTime: TimeInterval = 0
     
-    @State var isShowingCluster: Bool
-    @State var isShowingClusterForm: Bool
+    @State var isShowingCluster: Bool = false
+    @State var isShowingClusterForm: Bool = false
+    @State var isShowingRoutesForm: Bool = false
     
     var body: some View {
         ZStack(alignment: .top) {
@@ -40,7 +41,7 @@ struct Home: View {
                         Spacer()
                         Spacer()
                         
-                        Cluster(isShowingForm: $isShowingClusterForm)
+                        Cluster(isShowingForm: $isShowingClusterForm, isShowingRoutesForm: $isShowingRoutesForm)
                     }
                     
                     Spacer()
@@ -59,6 +60,15 @@ struct Home: View {
                     .cornerRadius(10)
                 VStack {
                     ClusterForm(isShowingForm: $isShowingClusterForm)
+                        .frame(width: 600, height: 200, alignment: .center)
+                }.padding(20)
+            }
+            
+            if isShowingRoutesForm {
+                Color(keys.basicColor).opacity(0.2)
+                    .cornerRadius(10)
+                VStack {
+                    RoutesForm(isShowingRoutesForm: $isShowingRoutesForm)
                         .frame(width: 600, height: 200, alignment: .center)
                 }.padding(20)
             }
@@ -291,7 +301,7 @@ struct Home_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color(.white)
-            Home(isShowingCluster: true, isShowingClusterForm: false)
+            Home()
                 .frame(width: 1100, height: 800, alignment: .center)
         }
     }
