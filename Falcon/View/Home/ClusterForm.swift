@@ -89,6 +89,7 @@ struct ClusterForm: View {
                         .FShadow(radius: 10)
                     
                 }.buttonStyle(.plain)
+                    .padding(3)
                 
             }.textFieldStyle(.plain)
                 .padding()
