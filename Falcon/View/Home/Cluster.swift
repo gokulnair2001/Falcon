@@ -19,9 +19,9 @@ struct Cluster: View {
     var body: some View {
         
         VStack(alignment: .leading){
-
+            
             if iCloudUser.isSignedIn {
-              
+                
                 HStack {
                     Text("CLUSTER")
                         .font(.headline)
@@ -44,7 +44,7 @@ struct Cluster: View {
                     }
                     
                     Button{
-                       toggleSidebar()
+                        toggleSidebar()
                     }label: {
                         Image(systemName: "align.horizontal.left")
                             .resizable()
@@ -55,11 +55,12 @@ struct Cluster: View {
                     
                 }.padding([.leading, .trailing], 5)
                 
-                //NavigationView {
+                NavigationView {
                     ZStack {
                         Color.white
                         List(iCloudUtility.ClusterList, id: \.self){ data in
-                            //NavigationLink(destination: ClusterDetail(clusterDetails: data)) {
+                            NavigationLink(destination: ClusterDetail(ClusterName: data)) {
+                                
                                 HStack {
                                     Image(systemName: "folder")
                                         .resizable()
@@ -76,10 +77,10 @@ struct Cluster: View {
                                     
                                     Spacer()
                                 }.padding(2)
-                           // }
+                            }
                         }.padding(2)
                     }
-                //}
+                }
                 .onAppear {
                     iCloudUtility.fetchClusters()
                 }
@@ -101,13 +102,13 @@ struct Cluster: View {
 
 struct Cluster_Previews: PreviewProvider {
     static var previews: some View {
-       // Home(isShowingCluster: true)
-            //.frame(width: 1000, height: 800, alignment: .center)
+        // Home(isShowingCluster: true)
+        //.frame(width: 1000, height: 800, alignment: .center)
         Cluster(isShowingForm: .constant(false))
     }
 }
 
 extension ClusterModel {
     static var stubs:[ClusterModel] = [ ClusterModel(title: "EVO", APIs: [Collection(name: "Get Events", type: .GET, url: "www.get"),Collection(name: "Get Clubs", type: .GET, url: "www.getClubs"),Collection(name: "Get Explore", type: .GET, url: "www.explore")]), ClusterModel(title: "Dock!", APIs: [Collection(name: "Get Docks", type: .GET, url: "www.getDocks"),Collection(name: "Delete Docks", type: .DELETE, url: "www.deleteDocks")]) ]
-  
+    
 }
