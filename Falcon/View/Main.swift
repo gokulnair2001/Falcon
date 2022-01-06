@@ -30,7 +30,7 @@ struct Main: View {
                     HStack(spacing: 10) {
                         switch selectedScreen {
                         case .Home:
-                            Home(isShowingCluster: isShowingClusterView)
+                            Home(isShowingCluster: isShowingClusterView, isShowingClusterForm: false)
                         case .Settings:
                             Settings()
                         case .History:
