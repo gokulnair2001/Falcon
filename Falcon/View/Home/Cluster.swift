@@ -10,6 +10,7 @@ import SwiftUI
 struct Cluster: View {
     
     @Binding var isShowingForm:Bool
+    @Binding var isShowingRoutesForm:Bool
     
     @State private var searchString = ""
     
@@ -36,11 +37,11 @@ struct Cluster: View {
                         }
                         
                     }label: {
-                        Image(systemName: "plus")
+                        Image(systemName: "folder.badge.plus")
                             .resizable()
                             .font(Font.title.weight(.regular))
                             .foregroundColor(.black.opacity(0.7))
-                            .frame(width: 15, height: 15)
+                            .frame(width: 20, height: 15)
                     }
                     
                     Button{
@@ -59,7 +60,7 @@ struct Cluster: View {
                     ZStack {
                         Color.white
                         List(iCloudUtility.ClusterList, id: \.self){ data in
-                            NavigationLink(destination: ClusterDetail(ClusterName: data)) {
+                            NavigationLink(destination: ClusterDetail(ClusterName: data, isShowingRoutesForm: $isShowingRoutesForm)) {
                                 
                                 HStack {
                                     Image(systemName: "folder")
@@ -104,11 +105,6 @@ struct Cluster_Previews: PreviewProvider {
     static var previews: some View {
         // Home(isShowingCluster: true)
         //.frame(width: 1000, height: 800, alignment: .center)
-        Cluster(isShowingForm: .constant(false))
+        Cluster(isShowingForm: .constant(false), isShowingRoutesForm: .constant(false))
     }
-}
-
-extension ClusterModel {
-    static var stubs:[ClusterModel] = [ ClusterModel(title: "EVO", APIs: [Collection(name: "Get Events", type: .GET, url: "www.get"),Collection(name: "Get Clubs", type: .GET, url: "www.getClubs"),Collection(name: "Get Explore", type: .GET, url: "www.explore")]), ClusterModel(title: "Dock!", APIs: [Collection(name: "Get Docks", type: .GET, url: "www.getDocks"),Collection(name: "Delete Docks", type: .DELETE, url: "www.deleteDocks")]) ]
-    
 }

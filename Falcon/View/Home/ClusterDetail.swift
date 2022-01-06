@@ -8,14 +8,40 @@
 import SwiftUI
 
 struct ClusterDetail: View {
-    
+
     @State var ClusterName: String
+    
+    @Binding var isShowingRoutesForm: Bool
     
     var body: some View {
         VStack{
-            Text(ClusterName)
-                .foregroundColor(.black)
-                .font(.headline)
+            
+            HStack {
+                
+                Text(ClusterName)
+                    .foregroundColor(.black)
+                    .font(.headline)
+                
+                Spacer()
+                
+                Button{
+                    print("add")
+                    withAnimation {
+                        isShowingRoutesForm.toggle()
+                    }
+                    
+                }label: {
+                    Image(systemName: "plus.circle")
+                        .resizable()
+                        .font(Font.title.weight(.regular))
+                        .foregroundColor(.black.opacity(0.7))
+                        .frame(width: 15, height: 15)
+                }
+            }.padding(5)
+            
+          
+            
+            Spacer()
             
 //            List([], id: \.self) { api in
 //
@@ -42,8 +68,7 @@ struct ClusterDetail_Previews: PreviewProvider {
     static var previews: some View {
         ZStack {
             Color.white
-           // ClusterDetail(clusterDetails: .init(title: "Test", APIs: [Collection(name: "Test name", type: .GET, url: "Test url")]))
-             ClusterDetail(ClusterName: "Dock!")
+            ClusterDetail(ClusterName: "Dock!", isShowingRoutesForm: .constant(false))
         }.frame(width: 300, height: 900)
     }
 }
