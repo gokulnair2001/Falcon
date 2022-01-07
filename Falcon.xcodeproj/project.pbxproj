@@ -45,6 +45,7 @@
 		55AF15722774894700DB8CCA /* ImportTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF15712774894700DB8CCA /* ImportTypes.swift */; };
 		55AF157427748AD100DB8CCA /* MenuBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF157327748AD100DB8CCA /* MenuBar.swift */; };
 		55AF157627748D4000DB8CCA /* MenuBarOptions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55AF157527748D4000DB8CCA /* MenuBarOptions.swift */; };
+		55C19A9B278868F80055EF0D /* ClusterSchema.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55C19A9A278868F80055EF0D /* ClusterSchema.swift */; };
 		55D0C67D27761EBA00759916 /* ClusterDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55D0C67C27761EBA00759916 /* ClusterDetail.swift */; };
 		55E12DB02785D4310039D8A4 /* ClusterForm.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E12DAF2785D4310039D8A4 /* ClusterForm.swift */; };
 		55E12DB42785D4850039D8A4 /* iCloudUtility.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55E12DB32785D4850039D8A4 /* iCloudUtility.swift */; };
@@ -92,6 +93,7 @@
 		55AF15712774894700DB8CCA /* ImportTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImportTypes.swift; sourceTree = "<group>"; };
 		55AF157327748AD100DB8CCA /* MenuBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBar.swift; sourceTree = "<group>"; };
 		55AF157527748D4000DB8CCA /* MenuBarOptions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuBarOptions.swift; sourceTree = "<group>"; };
+		55C19A9A278868F80055EF0D /* ClusterSchema.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterSchema.swift; sourceTree = "<group>"; };
 		55D0C67C27761EBA00759916 /* ClusterDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterDetail.swift; sourceTree = "<group>"; };
 		55E12DAF2785D4310039D8A4 /* ClusterForm.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterForm.swift; sourceTree = "<group>"; };
 		55E12DB32785D4850039D8A4 /* iCloudUtility.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudUtility.swift; sourceTree = "<group>"; };
@@ -159,6 +161,7 @@
 				5564992C27830B9800ADBD54 /* iCloudErrorTypes.swift */,
 				55E12DB32785D4850039D8A4 /* iCloudUtility.swift */,
 				5542C5BA2788178B002C8FA8 /* iCloudClusterModel.swift */,
+				55C19A9A278868F80055EF0D /* ClusterSchema.swift */,
 			);
 			path = iCloud;
 			sourceTree = "<group>";
@@ -360,6 +363,7 @@
 				55AF157427748AD100DB8CCA /* MenuBar.swift in Sources */,
 				557B4C43276DC46300E319B2 /* SideBar.swift in Sources */,
 				557B4C47276DC51600E319B2 /* ScreenTypes.swift in Sources */,
+				55C19A9B278868F80055EF0D /* ClusterSchema.swift in Sources */,
 				557B4C53276DEC9300E319B2 /* TabBar.swift in Sources */,
 				55577FFB27521334000968D4 /* FalconApp.swift in Sources */,
 				557B4C45276DC4EF00E319B2 /* Tools.swift in Sources */,

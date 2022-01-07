@@ -43,8 +43,10 @@ struct ClusterDetail: View {
                         .frame(width: 15, height: 15)
                 }
             }.padding(5)
+                .frame(height: 30)
+                .background(.black.opacity(0.2))
+                .FShadow(radius: 3)
             
-            Spacer()
             
             List (iCloudRouteModel.fetchRoutes) { content in
                 Button() {
@@ -52,7 +54,7 @@ struct ClusterDetail: View {
                 }label: {
                     HStack {
                         Text(content.type)
-                            .foregroundColor(requestColorCode(with: .GET))
+                            .foregroundColor(requestColorCode(with: RequestType(rawValue: content.type)!))
                             .font(.caption2)
                             .bold()
                             .frame(width: 40, alignment: .leading)
@@ -67,7 +69,7 @@ struct ClusterDetail: View {
             .onAppear {
                 iCloudRouteModel.fetchRoutes(cluster: ClusterName)
             }
-        }
+        }.padding(3)
     }
 }
 

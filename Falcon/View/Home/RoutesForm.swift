@@ -82,6 +82,11 @@ struct RoutesForm: View {
                     print("Addded")
                     iCloudRouteModel.clusterName = ClusterDetail.selectedClusterName
                     iCloudRouteModel.addRouteButtonPressed()
+                    
+                    if !iCloudRouteModel.isRoutesSaved {
+                        isShowingRoutesForm.toggle()
+                    }
+                    
                 }label: {
                     Text("Add")
                         .font(.headline)
