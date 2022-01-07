@@ -9,12 +9,9 @@ import SwiftUI
 
 struct RoutesForm: View {
     
-    @State var requestType: RequestType = .GET
-    
-    @State var routeTitle:String = ""
-    @State var routeURL:String = ""
-    
     @Binding var isShowingRoutesForm: Bool
+    
+    @StateObject private var iCloudRouteModel = iCloudClusterModel()
     
     var body: some View {
         ZStack {
@@ -22,7 +19,14 @@ struct RoutesForm: View {
             
             VStack {
                 HStack {
-                    Text("Route form")
+                    
+                    Image(systemName: "bolt.horizontal.icloud")
+                        .resizable()
+                        .foregroundColor(.blue)
+                        .font(Font.title.weight(.medium))
+                        .frame(width: 20, height: 15, alignment: .center)
+                    
+                    Text(ClusterDetail.selectedClusterName)
                         .font(.body)
                         .bold()
                         .foregroundColor(.black)
@@ -38,8 +42,8 @@ struct RoutesForm: View {
                     }
                 }
                 
-                TextField("", text: $routeTitle)
-                    .placeholder(when: routeTitle.isEmpty, placeholder: {
+                TextField("", text: $iCloudRouteModel.routeTitle)
+                    .placeholder(when: iCloudRouteModel.routeTitle.isEmpty, placeholder: {
                         Text(" Route title")
                             .foregroundColor(.black.opacity(0.4))
                             .padding(2)
@@ -54,12 +58,12 @@ struct RoutesForm: View {
                 
                 ZStack(alignment: .topLeading) {
                     
-                    DropDown(requestType: $requestType)
+                    DropDown(requestType: $iCloudRouteModel.routeType)
                         .padding(.top, 1)
                     
                     HStack {
-                        TextField("", text: $routeURL)
-                            .placeholder(when: routeURL.isEmpty, placeholder: {
+                        TextField("", text: $iCloudRouteModel.routeURL)
+                            .placeholder(when: iCloudRouteModel.routeURL.isEmpty, placeholder: {
                                 Text(" Route URL")
                                     .foregroundColor(.black.opacity(0.4))
                                     .padding(2)
@@ -76,6 +80,8 @@ struct RoutesForm: View {
                 
                 Button {
                     print("Addded")
+                    iCloudRouteModel.clusterName = ClusterDetail.selectedClusterName
+                    iCloudRouteModel.addRouteButtonPressed()
                 }label: {
                     Text("Add")
                         .font(.headline)

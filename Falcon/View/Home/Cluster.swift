@@ -13,6 +13,7 @@ struct Cluster: View {
     @Binding var isShowingRoutesForm:Bool
     
     @State private var searchString = ""
+    @State private var clusterName = ""
     
     @StateObject private var iCloudUtility = iCloudUtilityModel()
     @StateObject private var iCloudUser = CloudKitUserSetupViewModel()

@@ -11,6 +11,7 @@
 		5505DFFB276F2A0F00EB2CDA /* JsonFormats.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505DFFA276F2A0F00EB2CDA /* JsonFormats.swift */; };
 		5505DFFD276F2B1F00EB2CDA /* Keys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5505DFFC276F2B1F00EB2CDA /* Keys.swift */; };
 		553075A1276F8A58005FC33C /* HttpStatusCodes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 553075A0276F8A58005FC33C /* HttpStatusCodes.swift */; };
+		5542C5BB2788178B002C8FA8 /* iCloudClusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5542C5BA2788178B002C8FA8 /* iCloudClusterModel.swift */; };
 		55577FFB27521334000968D4 /* FalconApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55577FFA27521334000968D4 /* FalconApp.swift */; };
 		55577FFD27521334000968D4 /* Main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 55577FFC27521334000968D4 /* Main.swift */; };
 		55577FFF27521336000968D4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 55577FFE27521336000968D4 /* Assets.xcassets */; };
@@ -18,7 +19,6 @@
 		556499292782E4F700ADBD54 /* CloudKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 556499282782E4F700ADBD54 /* CloudKit.framework */; };
 		5564992B2782E82800ADBD54 /* UserSetup.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564992A2782E82800ADBD54 /* UserSetup.swift */; };
 		5564992D27830B9800ADBD54 /* iCloudErrorTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5564992C27830B9800ADBD54 /* iCloudErrorTypes.swift */; };
-		5576915A27742F310014E7ED /* ClusterModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5576915927742F310014E7ED /* ClusterModel.swift */; };
 		557B4C43276DC46300E319B2 /* SideBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C42276DC46300E319B2 /* SideBar.swift */; };
 		557B4C45276DC4EF00E319B2 /* Tools.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C44276DC4EF00E319B2 /* Tools.swift */; };
 		557B4C47276DC51600E319B2 /* ScreenTypes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 557B4C46276DC51600E319B2 /* ScreenTypes.swift */; };
@@ -55,6 +55,7 @@
 		5505DFFA276F2A0F00EB2CDA /* JsonFormats.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JsonFormats.swift; sourceTree = "<group>"; };
 		5505DFFC276F2B1F00EB2CDA /* Keys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Keys.swift; sourceTree = "<group>"; };
 		553075A0276F8A58005FC33C /* HttpStatusCodes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HttpStatusCodes.swift; sourceTree = "<group>"; };
+		5542C5BA2788178B002C8FA8 /* iCloudClusterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudClusterModel.swift; sourceTree = "<group>"; };
 		55577FF727521334000968D4 /* Falcon.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Falcon.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		55577FFA27521334000968D4 /* FalconApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FalconApp.swift; sourceTree = "<group>"; };
 		55577FFC27521334000968D4 /* Main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Main.swift; sourceTree = "<group>"; };
@@ -64,7 +65,6 @@
 		556499282782E4F700ADBD54 /* CloudKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CloudKit.framework; path = System/Library/Frameworks/CloudKit.framework; sourceTree = SDKROOT; };
 		5564992A2782E82800ADBD54 /* UserSetup.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSetup.swift; sourceTree = "<group>"; };
 		5564992C27830B9800ADBD54 /* iCloudErrorTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iCloudErrorTypes.swift; sourceTree = "<group>"; };
-		5576915927742F310014E7ED /* ClusterModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClusterModel.swift; sourceTree = "<group>"; };
 		557B4C42276DC46300E319B2 /* SideBar.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideBar.swift; sourceTree = "<group>"; };
 		557B4C44276DC4EF00E319B2 /* Tools.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tools.swift; sourceTree = "<group>"; };
 		557B4C46276DC51600E319B2 /* ScreenTypes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScreenTypes.swift; sourceTree = "<group>"; };
@@ -158,6 +158,7 @@
 				5564992A2782E82800ADBD54 /* UserSetup.swift */,
 				5564992C27830B9800ADBD54 /* iCloudErrorTypes.swift */,
 				55E12DB32785D4850039D8A4 /* iCloudUtility.swift */,
+				5542C5BA2788178B002C8FA8 /* iCloudClusterModel.swift */,
 			);
 			path = iCloud;
 			sourceTree = "<group>";
@@ -178,7 +179,6 @@
 				5505DFF8276EEF4600EB2CDA /* DropDown.swift */,
 				55A298B427731F9D00AA74E4 /* VerticalTabBar.swift */,
 				55AF157327748AD100DB8CCA /* MenuBar.swift */,
-				5576915927742F310014E7ED /* ClusterModel.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -330,11 +330,11 @@
 				557B4C4B276DC6A700E319B2 /* Documentation.swift in Sources */,
 				55AF1570277488D100DB8CCA /* ImportViewBar.swift in Sources */,
 				55909AFD276E19A000AC041E /* ImageModel.swift in Sources */,
+				5542C5BB2788178B002C8FA8 /* iCloudClusterModel.swift in Sources */,
 				557B4C51276DE7CC00E319B2 /* Profile.swift in Sources */,
 				55AF157627748D4000DB8CCA /* MenuBarOptions.swift in Sources */,
 				55909AFB276E17E500AC041E /* HttpResponses.swift in Sources */,
 				55909AF6276E12FB00AC041E /* Network.swift in Sources */,
-				5576915A27742F310014E7ED /* ClusterModel.swift in Sources */,
 				55909B00276E322D00AC041E /* Support.swift in Sources */,
 				55A298B3277313AC00AA74E4 /* Cluster.swift in Sources */,
 				55A298B727735D6A00AA74E4 /* HttpResponseTime.swift in Sources */,

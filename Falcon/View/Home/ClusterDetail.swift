@@ -8,10 +8,14 @@
 import SwiftUI
 
 struct ClusterDetail: View {
-
+    
     @State var ClusterName: String
     
     @Binding var isShowingRoutesForm: Bool
+    
+    @StateObject private var iCloudRouteModel = iCloudClusterModel()
+    
+    static var selectedClusterName = ""
     
     var body: some View {
         VStack{
@@ -28,6 +32,7 @@ struct ClusterDetail: View {
                     print("add")
                     withAnimation {
                         isShowingRoutesForm.toggle()
+                        ClusterDetail.selectedClusterName = ClusterName
                     }
                     
                 }label: {
@@ -39,27 +44,29 @@ struct ClusterDetail: View {
                 }
             }.padding(5)
             
-          
-            
             Spacer()
             
-//            List([], id: \.self) { api in
-//
-//                HStack {
-//                    Text(api.type.rawValue)
-//                        .foregroundColor(requestColorCode(with: api.type))
-//                        .font(.caption2)
-//                        .bold()
-//                        .frame(width: 40, alignment: .leading)
-//
-//                    Text(api.name)
-//                        .foregroundColor(.black.opacity(0.7))
-//                        .font(.body)
-//                        .padding(.leading, 5)
-//
-//                    Spacer()
-//                }
-//            }
+            List (iCloudRouteModel.fetchRoutes) { content in
+                Button() {
+                    print(content.url)
+                }label: {
+                    HStack {
+                        Text(content.type)
+                            .foregroundColor(requestColorCode(with: .GET))
+                            .font(.caption2)
+                            .bold()
+                            .frame(width: 40, alignment: .leading)
+                        
+                        Text(content.title)
+                            .foregroundColor(.black.opacity(0.7))
+                            .font(.body)
+                            .padding(.leading, 5)
+                    }
+                }
+            }
+            .onAppear {
+                iCloudRouteModel.fetchRoutes(cluster: ClusterName)
+            }
         }
     }
 }
