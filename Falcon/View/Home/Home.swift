@@ -69,7 +69,7 @@ struct Home: View {
                     .cornerRadius(10)
                 VStack {
                     RoutesForm(isShowingRoutesForm: $isShowingRoutesForm)
-                        .frame(width: 600, height: 200, alignment: .center)
+                        .frame(width: 600, height: 400, alignment: .center)
                 }.padding(20)
             }
             
