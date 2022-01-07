@@ -7,20 +7,13 @@
 
 import CloudKit
 
-struct fetchModel: Identifiable {
-    let id = UUID()
-    let title: String
-    let url: String
-    let type: String
-}
-
 class iCloudClusterModel: ObservableObject {
  
     @Published var routeTitle:String = ""
     @Published var routeURL:String = ""
     @Published var routeType:RequestType = .GET
-  
-    @Published var fetchRoutes:[fetchModel] = []
+    @Published var isRoutesSaved:Bool = false
+    @Published var fetchRoutes:[clusterSchema] = []
     
     var clusterName:String = ""
     
@@ -46,7 +39,7 @@ class iCloudClusterModel: ObservableObject {
 //            print(returnedError?.localizedDescription)
             
             DispatchQueue.main.async {
-                //self?.clusterName = ""
+                self?.isRoutesSaved = true
                 self?.routeTitle = ""
                 self?.routeURL = ""
             }
@@ -69,7 +62,7 @@ class iCloudClusterModel: ObservableObject {
         var returnedTitles:[String] = []
         var returnedUrls:[String] = []
         var returnedTypes:[String] = []
-        var fetchedData:[fetchModel] = []
+        var fetchedData:[clusterSchema] = []
         
         queryOperation.recordMatchedBlock = { (returnedRecordID, returnedResult) in
             switch returnedResult {
@@ -82,7 +75,7 @@ class iCloudClusterModel: ObservableObject {
                 returnedTitles.append(title)
                 returnedUrls.append(url)
                 returnedTypes.append(type)
-                fetchedData.append(fetchModel(title: title, url: url, type: type))
+                fetchedData.append(clusterSchema(title: title, url: url, type: type))
                 
             case .failure(let error):
                 print(error.localizedDescription)

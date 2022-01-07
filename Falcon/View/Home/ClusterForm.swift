@@ -79,6 +79,7 @@ struct ClusterForm: View {
                     if !iCloudModel.isClusterSaved {
                         isShowingForm.toggle()
                     }
+                    
                 }label: {
                     Text("Add")
                         .font(.headline)
