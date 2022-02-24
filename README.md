@@ -1,5 +1,4 @@
 # Falcon
-Falcon is an API Client that makes it easy for developers to create, test and document APIs
 
 FALCON is an API development, Testing and documentation App built purely with SwiftUI ❤️ 
 
@@ -16,3 +15,7 @@ FALCON is an API development, Testing and documentation App built purely with Sw
 <img width = 400, height = 250 alt="Screenshot 2022-01-06 at 4 13 14 PM" src="https://user-images.githubusercontent.com/56252259/148371598-2492dc64-966a-4e32-aaa7-96b2f6bd722f.png"> | <img width = 400, height = 250 alt="Screenshot 2022-01-07 at 6 10 07 PM" src="https://user-images.githubusercontent.com/56252259/148545463-6a51ab21-1105-48ec-a4ab-2c3c19195125.png">
 9 | 10
 <img width = 400, height = 250 alt="Screenshot 2022-01-07 at 6 10 16 PM" src="https://user-images.githubusercontent.com/56252259/148545481-39607275-0d92-49bb-bfe2-bfcca10ca22b.png"> | nil
+
+⚠️ Warning
+* The project is incomplete, I started it with a focus to learn SwiftUI as well to make a developer-friendly tool but later faced various issues while developing it.
+* So if you find it interesting then ping me up, We can work on it✌️
